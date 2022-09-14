@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Skylar.iml" filepath="$PROJECT_DIR$/.idea/Skylar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SkylarAngular.iml" filepath="$PROJECT_DIR$/SkylarAngular.iml" />
     </modules>
   </component>
 </project>
