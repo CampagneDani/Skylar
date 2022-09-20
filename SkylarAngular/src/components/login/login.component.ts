@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'login-component',
@@ -6,9 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  title = 'SkylarAngular';
+constructor(private router:Router) {
+}
+  goToPage(pageName:string){
+    this.router.navigate([pageName]);
 
-  success(){
-    alert("submitted Account Succesfully")
   }
+
 }
