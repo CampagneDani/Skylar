@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>ForYouPage</title>
   </head>
-  <body>
-  <h1>Input Test</h1>
-  <input type="text" placeholder="test" [(ngModel)]="test"><button (click)="onSubmit(test)">Submit</button>
- <div>{{ddd}}</div>
+  <body style="background-color: #052c65;">
+
+  <h1 style="color: red">Input Test</h1>
+
+  <input #box (keyup.enter)="onEnter(box.value)">
+  <p style="color: azure">{{value}}</p>
   </body>
 </html>
