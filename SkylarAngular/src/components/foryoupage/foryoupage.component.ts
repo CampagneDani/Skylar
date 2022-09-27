@@ -6,7 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./foryoupage.component.css']
 })
 export class ForyoupageComponent {
+test =""
+  ddd=""
+  ngOnInit(){
 
-
-
+  }
+  onSubmit(data: string){
+  alert("The Data '"+data+"' was submitted!")
+    data = this.ddd
+    return data
+  }
 }
+
