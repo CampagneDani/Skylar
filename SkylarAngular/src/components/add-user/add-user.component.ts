@@ -10,7 +10,7 @@ import {UserService} from "../../services/user.service";
 })
 export class AddUserComponent implements OnInit {
 
-  tutorial: User = {
+  user: User = {
     title: '',
     description: '',
     published: false
@@ -22,12 +22,12 @@ export class AddUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveTutorial(): void {
+  saveUser(): void {
     const data = {
-      title: this.tutorial.title,
-      description: this.tutorial.description
+      title: this.user.title,
+      description: this.user.description
     };
-
+  console.log(data)
     this.userService.create(data)
       .subscribe({
         next: (res) => {
@@ -40,7 +40,7 @@ export class AddUserComponent implements OnInit {
 
   newUser(): void {
     this.submitted = false;
-    this.tutorial = {
+    this.user = {
       title: '',
       description: '',
       published: false
