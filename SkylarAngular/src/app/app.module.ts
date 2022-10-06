@@ -7,7 +7,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import {AddUserComponent} from "../components/add-user/add-user.component";
+import {UserService} from "../services/user.service";
+
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import {AddUserComponent} from "../components/add-user/add-user.component";
 
 
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

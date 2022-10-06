@@ -1,6 +1,6 @@
-export class User {
-  id?: any;
-  title?: string;
-  description?: string;
-  published?: boolean;
-}
+ export interface User{
+   id?:number
+   username?:string
+   password?:string
+   email?:string
+ }
