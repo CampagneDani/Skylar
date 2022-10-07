@@ -14,6 +14,7 @@ export class RegistrationComponent implements OnInit{
   }
  ngOnInit(){
     this.getRegistration()
+
  }
  username=""
   password=""

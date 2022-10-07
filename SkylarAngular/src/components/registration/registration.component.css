@@ -1,4 +1,11 @@
 .mat-icon {
   transform: scale(1.5);
-  
+
+}
+body {
+  background-image: url("src/assets/img/cool-background.png");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

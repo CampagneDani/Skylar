@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ForyoupageComponent {
 
-  value = '';
-  onEnter(value: string) {
-    this.value = value; }
+
 }
 

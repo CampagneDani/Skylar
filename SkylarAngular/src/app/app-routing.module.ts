@@ -7,9 +7,16 @@ import {RegistrationComponent} from "../components/registration/registration.com
 
 
 
+
+
 const routes: Routes = [
+  {
+    path: 'login',
+    loadChildren: () => import('../components/login/login-routing.module').then(m => m.LoginRoutingModule),
+    component:LoginComponent,
+
+  },
   {path: 'home', component:ForyoupageComponent },
-  {path: 'login',component:LoginComponent},
   {path: 'registration',component:RegistrationComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ]

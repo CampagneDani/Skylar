@@ -1,26 +1,55 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {User} from "../../models/user.model";
 import {HttpErrorResponse} from "@angular/common/http";
 import {UserService} from "../../services/user.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
   selector: 'login-component',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 constructor(private router:Router,
-            private userService:UserService) {
+            private userService:UserService,
+            private authenticationService: AuthenticationService,
+            ) {
 }
-  username=""
+  /*username=""
   password=""
   user:User[]=[]
 
   getRegistration(){
     this.userService.getAllUser().subscribe((dto:User[]) => {
       this.user = dto
-    },(error:HttpErrorResponse) => {alert(error.message)} )
+    },(error:HttpErrorResponse) => {alert(error.message)})
   }
+LoginFunc(){
+  this.user.map(()=>{})
+} */
+  loginForm = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl(['', Validators.required, Validators.minLength(5)])
+  });
+
+
+
+  ngOnInit(): void {
+  }
+  get usernameControl(): FormControl {
+    return this.loginForm.get('username') as FormControl;
+  }
+
+  get passwordControl(): FormControl {
+    return this.loginForm.get('password') as FormControl;
+  }
+  login(): void {
+    let username = this.loginForm.get('username')!.value;
+    let password = this.loginForm.get('password')!.value;
+    this.authenticationService.login(username, password).subscribe(() => this.router.navigateByUrl("/"));
+  }
+
 
 }

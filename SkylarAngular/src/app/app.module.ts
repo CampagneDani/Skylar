@@ -5,9 +5,10 @@ import {AppRoutingModule, routingComponents} from "./app-routing.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "../services/user.service";
+
 
 
 
@@ -15,6 +16,8 @@ import {UserService} from "../services/user.service";
   declarations: [
     AppComponent,
     routingComponents,
+
+
 
   ],
   imports: [
@@ -25,6 +28,7 @@ import {UserService} from "../services/user.service";
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
 
 
   ],
