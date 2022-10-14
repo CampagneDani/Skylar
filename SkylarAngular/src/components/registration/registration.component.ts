@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {User} from "../../models/user.model";
 import {HttpErrorResponse} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'registration-component',
@@ -10,7 +11,18 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit{
-  constructor(private userService:UserService) {
+  constructor(private userService:UserService,private router:Router) {
+  }
+
+  navigateToLogin(){
+    setTimeout(() =>
+      {
+        this.router.navigate(['/login']);
+      },
+      5000);
+  }
+  popUpToLogin(){
+    alert("You will be redirected to the Login Page in just a moment!")
   }
  ngOnInit(){
     this.getRegistration()

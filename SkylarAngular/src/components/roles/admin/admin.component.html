@@ -1,3 +1,26 @@
-<div>
-  <p style="color: red">is working properly</p>
-</div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Page</title>
+</head>
+<body>
+
+<h1 style="color: red">Skylar Admin Test</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th></th>
+  </tr>
+  <tr class="genre" *ngFor="let use of user ">
+    <td>
+      <div>{{use.username}}</div>
+      <input type="text" placeholder="assign Role"  />
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

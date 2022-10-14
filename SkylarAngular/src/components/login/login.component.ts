@@ -18,7 +18,7 @@ constructor(private router:Router,
 
             ) {
 }
-
+ zero=""
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl(['', Validators.required, Validators.minLength(5)])

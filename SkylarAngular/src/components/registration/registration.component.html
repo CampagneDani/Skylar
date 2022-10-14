@@ -50,7 +50,10 @@
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button (click)="createRegistration()" type="button" class="btn btn-primary btn-lg">Register</button>
+                    <button (click)="createRegistration();popUpToLogin();navigateToLogin()" type="button" class="btn btn-primary btn-lg">
+                      <!--<meta http-equiv="Refresh" content="3; url='http://localhost:4200/login'" />-->
+
+                      Register</button>
                   </div>
 
                 </form>
