@@ -11,10 +11,10 @@ export class AppComponent{
   title= "SkylarAngular";
 
   constructor(private http:HttpClient,
-              private router:Router) {
-  }
+                private router:Router) {
 
 
+}
 
 
 }

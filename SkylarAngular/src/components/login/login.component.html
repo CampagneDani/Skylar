@@ -23,8 +23,8 @@
 
                   <div class="form-outline mb-4">
                     <div class="form-floating">
-                    <input type="username" class="form-control" id="floatingInput" formControlName="username">
-                    <label for="floatingInput">Username</label>
+                    <input type="username" class="form-control" id="username" formControlName="username">
+                    <label for="username">Username</label>
                     <div *ngIf="loginForm.invalid && usernameControl?.touched && usernameControl.errors">
                       <span *ngIf="usernameControl.errors['required']">Username is required</span>
                     </div>
@@ -33,8 +33,8 @@
 
                   <div class="form-outline mb-4">
                     <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword">
-                    <label for="floatingPassword">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    <label for="password">Password</label>
                     <div *ngIf="loginForm.invalid && passwordControl.touched && passwordControl.errors">
                       <span *ngIf="passwordControl.errors['minLength']">At least 8 characters</span>
                     </div>
@@ -42,7 +42,7 @@
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="this.loginForm.invalid" >Login</button>
+                    <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="this.loginForm.invalid" (click)="login()" >Login</button>
                   </div>
 
                   <a class="small text-muted" href="/registration">Forgot password?</a>

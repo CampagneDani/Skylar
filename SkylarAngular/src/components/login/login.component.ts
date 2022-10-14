@@ -11,24 +11,14 @@ import {AuthenticationService} from "../../services/authentication.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent{
 constructor(private router:Router,
             private userService:UserService,
             private authenticationService: AuthenticationService,
+
             ) {
 }
-  /*username=""
-  password=""
-  user:User[]=[]
 
-  getRegistration(){
-    this.userService.getAllUser().subscribe((dto:User[]) => {
-      this.user = dto
-    },(error:HttpErrorResponse) => {alert(error.message)})
-  }
-LoginFunc(){
-  this.user.map(()=>{})
-} */
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl(['', Validators.required, Validators.minLength(5)])
@@ -48,7 +38,8 @@ LoginFunc(){
   login(): void {
     let username = this.loginForm.get('username')!.value;
     let password = this.loginForm.get('password')!.value;
-    this.authenticationService.login(username, password).subscribe(() => this.router.navigateByUrl("/"));
+    console.log(password)
+    this.authenticationService.login(username, password).subscribe((role) => this.router.navigateByUrl("/"+role));
   }
 
 
