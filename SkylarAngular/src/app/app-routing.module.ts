@@ -7,6 +7,9 @@ import {RegistrationComponent} from "../components/registration/registration.com
 import {AdminComponent} from "../components/roles/admin/admin.component";
 import {FinanceComponent} from "../components/roles/Finance/finance.component";
 import {ManagementComponent} from "../components/roles/Management/management.component";
+import {AdminGuardService} from "../guard/admin-guard.service";
+import {FinanceGuardService} from "../guard/finance-guard.service";
+import {ManagementGuardService} from "../guard/management-guard.service";
 
 
 
@@ -18,9 +21,9 @@ const routes: Routes = [
   {path: 'registration',component:RegistrationComponent},
   {path: 'login',component:LoginComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path:'Admin',component:AdminComponent},
-  { path:'Finance',component:FinanceComponent},
-  { path:'Management',component:ManagementComponent},
+  { path:'Admin',component:AdminComponent,canActivate:[AdminGuardService]},
+  { path:'Finance',component:FinanceComponent, canActivate:[FinanceGuardService]},
+  { path:'Management',component:ManagementComponent,canActivate:[ManagementGuardService]},
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

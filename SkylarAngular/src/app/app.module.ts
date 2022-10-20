@@ -8,6 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {UserService} from "../services/user.service";
+import {AdminGuardService} from "../guard/admin-guard.service";
+import {FinanceGuardService} from "../guard/finance-guard.service";
+import {ManagementGuardService} from "../guard/management-guard.service";
 
 
 
@@ -32,7 +35,7 @@ import {UserService} from "../services/user.service";
 
 
   ],
-  providers: [UserService],
+  providers: [UserService,AdminGuardService,FinanceGuardService,ManagementGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
