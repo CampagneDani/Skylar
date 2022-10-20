@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import {User} from "../models/user.model";
 
 
-const userURL = 'http://localhost:8080/user';
+
 
 
 @Injectable({
@@ -13,23 +13,29 @@ const userURL = 'http://localhost:8080/user';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-
+  userURL = 'http://localhost:8080/user';
   getAllUser(){
-    return this.http.get<User[]>(userURL);
+    return this.http.get<User[]>(this.userURL);
   }
 
-  createUser(registration: User): Observable<User> {
-    return this.http.post<User>(userURL, registration);
+  createUser(registration: { password: string; email: string; username: string }): Observable<User> {
+    return this.http.post<User>(this.userURL, registration);
   }
 
 
   deleteUser(id: number): Observable<unknown> {
-    const url = `${userURL}/${id}`
+    const url = `${this.userURL}/${id}`
     return this.http.delete(url)
   }
 
 
   findByTitle(username: string): Observable<User[]> {
-    return this.http.get<User[]>(`${userURL}?username=${username}`);
+    return this.http.get<User[]>(`${this.userURL}?username=${username}`);
+  }
+
+  updateUser(user: { password: string; role: string; email: string; username: string },
+             id:number):Observable<User>{
+    const url = `${this.userURL}/${id}`
+    return this.http.put<User>(url,user)
   }
 }

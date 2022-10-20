@@ -6,19 +6,49 @@
 </head>
 <body>
 
-<h1 style="color: red">Skylar Admin Test</h1>
+<h1>User List</h1>
+<p> You can Change variables by Clicking on Edit. Input fields will appear and you can either submit your new data or you can delete the user!
+</p>
+<p>It´s mainly for the use of assigning roles for new users!</p>
 
 <table>
   <tr>
+    <th>Id</th>
     <th>User</th>
+    <th>Password</th>
+    <th>Email</th>
+    <th>Role</th>
     <th></th>
   </tr>
   <tr class="genre" *ngFor="let use of user ">
     <td>
-      <div>{{use.username}}</div>
-      <input type="text" placeholder="assign Role"  />
+      <div>{{use.id}}</div>
 
     </td>
+    <td>
+      <div  *ngIf="!this.hidden[use.id]"style="width: 250px;margin-top: 5px">{{use.username}}</div>
+
+      <input *ngIf="this.hidden[use.id]" type="text" [(ngModel)]="updUsername"style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[use.id]" style="width: 250px;margin-top: 5px">{{use.password}}</div>
+      <input *ngIf="this.hidden[use.id]"  type="text" [(ngModel)]="updPassword"style="width: 250px;margin-top: 5px">
+    </td>
+    <td> <div *ngIf="!this.hidden[use.id]" style="width: 250px;margin-top: 5px">{{use.email}}</div>
+    <input *ngIf="this.hidden[use.id]"  type="text" [(ngModel)]="updEmail"style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div  *ngIf="!this.hidden[use.id]"style="width: 250px;margin-top: 5px">{{use.role}}</div>
+      <input  *ngIf="this.hidden[use.id]" type="text" [(ngModel)]="updRole" style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div style="width: 250px;margin-top: 5px">´</div>
+      <button *ngIf="!this.hidden[use.id]" (click)="updUsername=use.username;updPassword=use.password;updEmail=use.email;updRole=use.role;this.hidden[use.id] =!this.hidden[use.id]">Edit</button>
+      <button *ngIf="this.hidden[use.id]" (click)="updateRole(use.id);this.hidden[use.id] =!this.hidden[use.id]">Submit Change</button>
+      <button *ngIf="this.hidden[use.id]" (click)="deleteUser(use.id);this.hidden[use.id] =!this.hidden[use.id]">Delete User</button>
+    </td>
+
+
   </tr>
 </table>
 

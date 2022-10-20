@@ -38,7 +38,7 @@ constructor(private router:Router,
   login(): void {
     let username = this.loginForm.get('username')!.value;
     let password = this.loginForm.get('password')!.value;
-    console.log(password)
+
     this.authenticationService.login(username, password).subscribe((role) => this.router.navigateByUrl("/"+role));
   }
 
