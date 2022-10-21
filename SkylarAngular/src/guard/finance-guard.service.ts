@@ -21,7 +21,8 @@ export class FinanceGuardService implements CanActivate {
       return true;
     }
     else{
-      this._router.navigateByUrl("/home")
+      alert("You are not allowed to go on this page")
+      this._router.navigateByUrl("/login")
       return false;
     }
 

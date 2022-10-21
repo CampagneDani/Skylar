@@ -5,8 +5,11 @@
     <title>ForYouPage</title>
   </head>
   <body>
-
-  <h1 style="color: red">Skylar Frontpage Test</h1>
+  <h1>Here comes Your Role:</h1>
+  <h1 *ngIf="authService.getRole() == 'Admin'" style="color: red">Welcome Admin</h1>
+  <h1 *ngIf="authService.getRole() == 'Finance'" style="color: red">Welcome Finance</h1>
+  <h1 *ngIf="authService.getRole() == 'Management'" style="color: red">Welcome Management</h1>
+  <h2>Your Username is: {{authService.getUsername()}}</h2>
 
 
   </body>

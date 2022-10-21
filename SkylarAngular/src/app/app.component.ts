@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,10 @@ export class AppComponent{
   title= "SkylarAngular";
 
   constructor(private http:HttpClient,
-                private router:Router) {
+                public router:Router,
+              public authService:AuthenticationService) {
+    const getRole = this.authService.getRole()
 
 
-}
-
-
+  }
 }

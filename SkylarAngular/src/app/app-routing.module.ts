@@ -10,6 +10,7 @@ import {ManagementComponent} from "../components/roles/Management/management.com
 import {AdminGuardService} from "../guard/admin-guard.service";
 import {FinanceGuardService} from "../guard/finance-guard.service";
 import {ManagementGuardService} from "../guard/management-guard.service";
+import {UserListComponent} from "../components/user-list/user-list.component";
 
 
 
@@ -30,5 +31,5 @@ const routes: Routes = [
   exports:[RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents =[ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
+export const routingComponents =[UserListComponent,ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
 
