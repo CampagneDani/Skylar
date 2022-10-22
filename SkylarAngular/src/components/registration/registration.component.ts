@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {User} from "../../models/user.model";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Router} from "@angular/router";

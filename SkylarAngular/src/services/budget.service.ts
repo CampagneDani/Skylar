@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {User} from "../models/user.model";
 import {Project} from "../models/project.model";
 import {Budget} from "../models/budget.model";
 
@@ -12,7 +11,7 @@ export class BudgetService {
 
   constructor(private http: HttpClient) { }
   userURL = 'http://localhost:8080/budget';
-  getAllUser(){
+  getAllBudget(){
     return this.http.get<Budget[]>(this.userURL);
   }
 

@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import {Routes, RouterModule, Router} from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from "../components/login/login.component";
 import {ForyoupageComponent} from "../components/foryoupage/foryoupage.component";
-import {AppComponent} from "./app.component";
 import {RegistrationComponent} from "../components/registration/registration.component";
 import {AdminComponent} from "../components/roles/admin/admin.component";
 import {FinanceComponent} from "../components/roles/Finance/finance.component";
@@ -11,6 +10,8 @@ import {AdminGuardService} from "../guard/admin-guard.service";
 import {FinanceGuardService} from "../guard/finance-guard.service";
 import {ManagementGuardService} from "../guard/management-guard.service";
 import {UserListComponent} from "../components/user-list/user-list.component";
+import {ProjectListComponent} from "../components/project-list/project-list.component";
+import {BudgetListComponent} from "../components/budget-list/budget-list.component";
 
 
 
@@ -31,5 +32,5 @@ const routes: Routes = [
   exports:[RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents =[UserListComponent,ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
+export const routingComponents =[BudgetListComponent,ProjectListComponent,UserListComponent,ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
 

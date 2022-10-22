@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "../../../services/user.service";
 import {User} from "../../../models/user.model";
 import {ProjectService} from "../../../services/project.service";
 import {Project} from "../../../models/project.model";
@@ -24,6 +23,7 @@ export class ManagementComponent implements OnInit{
  //Budgets
   budgetBudget=0
   projectBudget:Project[]=[]
+  updUser:User[]=[]
 
 
   hidden = [false]
@@ -40,11 +40,11 @@ export class ManagementComponent implements OnInit{
   updateProject(id:number){
     this.projectService.updateProject({
 
-      projectname:this.projectname,
-      description:this.description,
+      projectname: this.projectname,
+      description: this.description,
       budget: this.budget,
-      project: this.project,
-    },id).subscribe(project =>{
+      user:this.updUser,
+    }, id).subscribe(project =>{
 
         this.getAllProjects()
 
@@ -58,7 +58,7 @@ export class ManagementComponent implements OnInit{
   //--------------------------Budgets------------------------------------
 
   getAllBudgets(){
-    this.budgetService.getAllUser().subscribe((dto:Budget[])=>{
+    this.budgetService.getAllBudget().subscribe((dto:Budget[])=>{
       this.budget = dto;
     })
   }

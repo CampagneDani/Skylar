@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {map, Observable, of, tap} from 'rxjs';
 import {HttpClient, HttpResponse} from '@angular/common/http';
-import {User} from "../models/user.model";
-import {UserService} from "./user.service";
 import {LoginResponseModel} from "../models/login-response.model";
 import {Router} from "@angular/router";
 

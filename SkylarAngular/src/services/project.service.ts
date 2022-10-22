@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {User} from "../models/user.model";
 import {Project} from "../models/project.model";
@@ -31,8 +31,7 @@ export class ProjectService {
   findByTitle(projectname: string): Observable<Project[]> {
     return this.http.get<Project[]>(`${this.userURL}?projectname=${projectname}`);
   }
-
-  updateProject(project: { projectname: string; description: string; project: any[]; budget: Budget[] },
+  updateProject(project: { projectname: string, description:string; user: User[]; budget: Budget[] },
                 id: number):Observable<Project>{
     const url = `${this.userURL}/${id}`
     return this.http.put<Project>(url,project)
