@@ -13,12 +13,8 @@ import {UserListComponent} from "../components/user-list/user-list.component";
 import {ProjectListComponent} from "../components/project-list/project-list.component";
 import {BudgetListComponent} from "../components/budget-list/budget-list.component";
 
-
-
-
-
 const routes: Routes = [
-
+  //Routes can be reached by "/..."
   {path: 'home', component:ForyoupageComponent },
   {path: 'registration',component:RegistrationComponent},
   {path: 'login',component:LoginComponent},
@@ -26,11 +22,13 @@ const routes: Routes = [
   { path:'Admin',component:AdminComponent,canActivate:[AdminGuardService]},
   { path:'Finance',component:FinanceComponent, canActivate:[FinanceGuardService]},
   { path:'Management',component:ManagementComponent,canActivate:[ManagementGuardService]},
+  { path:'budget-list',component:BudgetListComponent,canActivate:[ManagementGuardService]},
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports:[RouterModule]
 })
 export class AppRoutingModule { }
+// Constant variable for every possible used HTML in Router-Outlet(in app-component)
 export const routingComponents =[BudgetListComponent,ProjectListComponent,UserListComponent,ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
 

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {User} from "../../models/user.model";
 import {ProjectService} from "../../services/project.service";
 import {Project} from "../../models/project.model";
+
+import {Booking} from "../../models/booking.model";
 import {Budget} from "../../models/budget.model";
 
 @Component({
@@ -14,41 +16,68 @@ export class ProjectListComponent implements OnInit {
 
   }
 
-  updProjectname = ""
-  updDescription=""
-  updUser:User[]=[];
-  updBudget:Budget[]=[]
-  project:Project[]=[]
+  // ------------------Project Variables-----------------------------------
+  // Create Projects
+  name = ""
+  description = "";
+  assignedBudgetProject: Budget[] = [];
+  assignedUserProject: User[] = [];
+  assignedBookingProject: Booking[] = []
+  project: Project[] = []
+
+  // Update Project
+  updName = ""
+  updDescription = "";
+  updAssignedBudgetProject: Budget[] = [];
+  updAssignedUserProject: User[] = [];
+  updAssignedBookingProject: Booking[] = []
+  updProject: Project[] = []
+
   hidden = [false]
 
   ngOnInit() {
     this.getAllProjects()
   }
-
+//--------------------------Projects------------------------------------
   getAllProjects() {
     this.projectService.getAllProjects().subscribe((dto: Project[]) => {
       this.project = dto;
     })
   }
 
+  createProject() {
+    this.projectService.createProject({
+      name: this.name,
+      description: this.description,
+      assignedBudget: this.assignedBudgetProject,
+      assignedBooking: this.assignedBookingProject,
+      assignedUser: this.assignedUserProject,
+
+    }).subscribe(user => {
+      this.getAllProjects()
+    })
+  }
+
   updateProject(id: number) {
     this.projectService.updateProject({
+      name: this.updName,
+      description: this.updDescription,
+      assignedBudget: this.updAssignedBudgetProject,
+      assignedBooking: this.updAssignedBookingProject,
+      assignedUser: this.updAssignedUserProject,
+    }, id).subscribe(project => {
 
-      projectname: this.updProjectname,
-      user: this.updUser,
-      budget: this.updBudget,
-      description:this.updDescription
-    }, id).subscribe(user => {
-      console.log(user),
-        this.getAllProjects()
+      this.getAllProjects()
 
     })
 
   }
 
-  deleteUser(id: number) {
+  deleteProject(id: number) {
     this.projectService.deleteProject(id).subscribe(() => {
       this.getAllProjects()
     })
   }
+
+
 }

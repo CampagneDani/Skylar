@@ -21,16 +21,14 @@ export class AuthenticationService {
       localStorage.setItem("role",response.role)
      this.isloggedIn=true
      return response.role     }))
-
-
   }
   isUserLoggedIn():boolean{
     return this.isloggedIn
   }
   logoutUser(){
-    this.isloggedIn =false;
-return this.router.navigateByUrl("/login")  }
-
+    localStorage.clear();
+    return this.router.navigateByUrl("/login"), this.isloggedIn=false
+  }
   getRole():string|null{
     return localStorage.getItem("role")
   }

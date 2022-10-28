@@ -16,22 +16,25 @@
         <span class="icon-menu"></span>
       </button>
       <div class="collapse navbar-collapse hover-dropdown" id="header2">
+
+        <!-- Start Navbar left side-->
         <ul class="navbar-nav">
           <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
 
-
+          <!-- Start Dropdown User Interaction-->
           <li class="nav-item dropdown position-relative">
-            <a class="nav-link dropdown-toggle" href="#" id="h2-dropdown" data-toggle="dropdown" aria-haspopup="true"
+            <a class="nav-link dropdown-toggle" href="#"  id="h2-dropdown" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false">
-              User Interaction <i class="fa fa-angle-down ml-1 font-12"></i>
+              User Interaction
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/login">Login</a></li>
               <li><a class="dropdown-item" href="/registration">Registration</a></li>
-
-
             </ul>
           </li>
+          <!-- End Dropdown User Interaction-->
+
+          <!-- Start Dropdown For interaction on roles-->
           <li class="nav-item dropdown position-relative">
             <a class="nav-link dropdown-toggle" href="#" id="h3-dropdown" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false">
@@ -39,35 +42,63 @@
             </a>
             <ul class="dropdown-menu">
               <li *ngIf="authService.getRole() === 'Admin'" class="nav-item active"><a class="dropdown-item"
-                                                                                       href="/Admin">NavtryAdmin</a>
+                                                                                       href="/Admin">Admin-Page</a>
               </li>
               <li *ngIf="authService.getRole() === 'Finance'|| authService.getRole() === 'Admin'"
-                  class="nav-item active"><a class="dropdown-item" href="/Finance">NavtryFinance</a></li>
+                  class="nav-item active"><a class="dropdown-item" href="/Finance">Finance-Page</a></li>
               <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin'"
-                  class="nav-item active"><a class="dropdown-item" href="/Management">NavtryManagement</a></li>
-
-
+                  class="nav-item active"><a class="dropdown-item" href="/Management">Management-Page</a></li>
+              <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin'"
+                  class="nav-item active"><a class="dropdown-item" href="/budget-list">Budget List</a></li>
             </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+           </li>
+          <!-- End Dropdown For interaction on roles-->
+
         </ul>
-        <ul class="navbar-nav ml-auto">
-          <!--<li *ngIf="!authService.isUserLoggedIn" class="nav-item active"><a class="nav-link" href="/login">Login</a>
-          </li> -->
-         <!-- <li *ngIf="authService.isUserLoggedIn" class="nav-item active"><a class="nav-link" href="/login">Change
-            User</a></li> -->
-          <li *ngIf="!authService.isUserLoggedIn" class="nav-item"><a class="btn rounded-pill btn-dark py-2 px-4"
-                                                                      href="/registration">Sign up</a></li>
-          <li *ngIf="authService.isUserLoggedIn" class="nav-item"><a class="btn rounded-pill btn-dark py-2 px-4">UserIcon</a>
+        <!-- End Navbar left side-->
+
+        <!-- Start Navbar right side-->
+        <ul class="navbar-nav ml-auto" style="margin-right: 250px">
+          <li class="nav-item dropdown position-relative">
+            <a class="nav-link dropdown-toggle" href="#" id="h4-dropdown" data-toggle="dropdown" aria-haspopup="true"
+               aria-expanded="false">
+              <img *ngIf="authService.getRole() ==='Finance'" src="assets/img/icons8-circled-f-48.png">
+              <img *ngIf="authService.getRole() ==='Admin'" src="assets/img/icons8-circled-a-48.png">
+              <img *ngIf="authService.getRole() ==='Management'" src="assets/img/icons8-circled-m-48.png">
+            </a>
+
+
+            <ul class="dropdown-menu">
+            <li *ngIf="authService.getRole() === 'Admin'" class="nav-item active"><a class="dropdown-item"
+                                                                                     href="/Admin">Admin-Page</a>
+            </li>
+            <li *ngIf="authService.getRole() === 'Finance'|| authService.getRole() === 'Admin'"
+                class="nav-item active"><a class="dropdown-item" href="/Finance">Finance-Page</a></li>
+            <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin'"
+                class="nav-item active"><a class="dropdown-item" href="/Management">Management-Page</a></li>
+            <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin' || authService.getRole() ==='Finance'"
+                class="nav-item active"><a class="dropdown-item" href="/login">Change User</a></li>
+            <hr>
+            <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin' || authService.getRole() ==='Finance'"
+                class="nav-item active"><a class="dropdown-item" href="/login" (click)="authService.logoutUser()">Logout</a></li>
+          </ul>
           </li>
+          <a class="nav-link" >{{authService.getUsername()}}</a>
         </ul>
+
+
+
+        <!-- End Navbar right side-->
+
       </div>
     </nav>
     <!-- End Navbar Code -->
   </div>
 </div>
+<!-- Start: Routes for HTML Connections like /home in ForYouPage or /login in LoginComponent -->
+<!--Comment: Every Component (in app-routing-module) which is declared in routing Components can be used-->
 <router-outlet></router-outlet>
+<!-- End: Routes for HTML Connections like /home in ForYouPage or /login in LoginComponent -->
+
 </body>
 </html>

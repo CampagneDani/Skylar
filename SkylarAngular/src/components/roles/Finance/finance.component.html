@@ -1,13 +1,283 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Finance Page</title>
-</head>
-<body>
+<h1>Bank Account Table</h1>
+<table>
 
-<h1 style="color: red">Skylar Finance Test</h1>
+  <tr>
+    <th>Saldo</th>
+    <th>Assigned Bookings</th>
+    <th>Assigned User</th>
+    <th></th>
+    <th></th>
+
+  </tr>
+  <tr>
+    <th><input type="number" [(ngModel)]="saldo" placeholder="Saldo" style="width: 250px;"></th>
+    <th><input type="text" [(ngModel)]="assignedBookingBA" placeholder="Bookings" style="width: 250px;"></th>
+    <th><input type="text" [(ngModel)]="assignedUserBA" placeholder="Users" style="width: 250px;"></th>
+    <th>
+      <button (click)="createBankAccount()" class="create" size="regular" shape="regular" type="button" color="primary"
+              >Create an Bank Account
+      </button>
+    </th>
+    <th>
+      <button (click)="getAllBankAccounts()" size="regular" shape="regular" type="button" color="primary"
+              >Get All Bank Accounts
+      </button>
+    </th>
+  </tr>
+  <tr *ngFor="let ba of bankAcc">
+    <td>
+
+      <div *ngIf="!this.hidden[ba.id]">{{ba.saldo}}</div>
 
 
-</body>
-</html>
+      <input *ngIf="this.hidden[ba.id]" type="text" [(ngModel)]="updSaldo" placeholder="Saldo"
+             style="width: 250px;">
+    </td>
+    <td>
+
+
+      <div *ngIf="!this.hidden[ba.id]">{{ba.assignedBookings}}</div>
+
+      <input *ngIf="this.hidden[ba.id]" type="text" [(ngModel)]="updAssignedBookingBA" placeholder="Bookings"
+             style="width: 250px;">
+    </td>
+    <td>
+
+
+      <div *ngIf="!this.hidden[ba.id]"> {{ba.assignedUser}}</div>
+
+      <input *ngIf="this.hidden[ba.id]" type="text" [(ngModel)]="updAssignedUserBA" placeholder="Users"
+             style="width: 250px;">
+    </td>
+    <td>
+
+      <button (click)="deleteBankAccount(ba.id)" class="create" size="small" shape="regular" type="button"
+              color="primary" >Delete
+      </button>
+
+
+      <button *ngIf="!this.hidden[ba.id]"
+              (click)="updSaldo=ba.saldo;updAssignedBookingBA=ba.assignedBookings;updAssignedUserBA=ba.assignedUser;this.hidden[ba.id]= !this.hidden[ba.id]"
+              class="create" size="small" shape="regular" type="button" color="primary"
+              > Edit Bank Account
+      </button>
+
+
+      <button *ngIf="this.hidden[ba.id]"
+              (click)="updateBankAccount(ba.id);this.hidden[ba.id]= !this.hidden[ba.id]"
+              class="create" size="small" shape="regular" type="button" color="primary"
+              >Submit
+      </button>
+
+
+    </td>
+
+
+  </tr>
+
+
+</table>
+<br>
+<br>
+<h1>Booking Table</h1>
+<table>
+
+  <tr>
+    <th>Date</th>
+    <th>Value</th>
+    <th>Budget</th>
+    <th>User</th>
+    <th>Project</th>
+    <th>Bank Account</th>
+    <th></th>
+    <th></th>
+
+  </tr>
+  <tr>
+    <th><input type="date" [(ngModel)]="date" placeholder="Date" style="width: 250px;"></th>
+    <th><input type="number" [(ngModel)]="value" placeholder="Value" style="width: 250px;">
+    </th>
+    <th><input type="text" [(ngModel)]="budgetBooking" placeholder="Bookings" style="width: 250px;">
+    </th>
+    <th><input type="text" [(ngModel)]="userBooking" placeholder="Users" style="width: 250px;">
+    </th>
+    <th><input type="text" [(ngModel)]="projectBooking" placeholder="Project" style="width: 250px;">
+    </th>
+    <th><input type="text" [(ngModel)]="bankAccountBooking" placeholder="BankAccount" style="width: 250px;">
+    </th>
+    <th>
+      <button (click)="createBookings()" class="create" size="regular" shape="regular" type="button" color="primary"
+              >Create an Booking
+      </button>
+    </th>
+    <th>
+      <button (click)="getAllBookings()" size="regular" shape="regular" type="button" color="primary"
+              >Get All Bookings
+      </button>
+    </th>
+  </tr>
+  <tr *ngFor="let booking of booking">
+    <td>
+
+      <div *ngIf="!this.hidden[booking.id]">{{booking.date}}</div>
+
+
+      <input *ngIf="this.hidden[booking.id]" type="date" [(ngModel)]="updDate" placeholder="Date"
+             style="width: 250px;">
+    </td>
+    <td>
+
+
+      <div *ngIf="!this.hidden[booking.id]">{{booking.value}}</div>
+
+      <input *ngIf="this.hidden[booking.id]" type="number" [(ngModel)]="updValue" placeholder="Value"
+             style="width: 250px;">
+    </td>
+    <td>
+
+
+      <div *ngIf="!this.hidden[booking.id]"> {{booking.assignedBudget}}</div>
+
+      <input *ngIf="this.hidden[booking.id]" type="text" [(ngModel)]="updBudgetBooking" placeholder="Budget"
+             style="width: 250px;">
+    </td>
+    <td>
+
+
+      <div *ngIf="!this.hidden[booking.id]"> {{booking.assignedUser}}</div>
+
+      <input *ngIf="this.hidden[booking.id]" type="text" [(ngModel)]="updUserBooking" placeholder="User"
+             style="width: 250px;">
+    </td>
+    <td>
+
+
+      <div *ngIf="!this.hidden[booking.id]"> {{booking.assignedProject}}</div>
+
+      <input *ngIf="this.hidden[booking.id]" type="text" [(ngModel)]="updProjectBooking" placeholder="Project"
+             style="width: 250px;">
+    </td>
+    <td>
+
+
+      <div *ngIf="!this.hidden[booking.id]"> {{booking.assignedBankAccount}}</div>
+
+      <input *ngIf="this.hidden[booking.id]" type="text" [(ngModel)]="updBankAccountBooking" placeholder="BankAccount"
+             style="width: 250px;">
+    </td>
+    <td>
+
+      <button (click)="deleteBookings(booking.id)" class="create" size="small" shape="regular" type="button"
+              color="primary" >Delete
+      </button>
+
+
+      <button *ngIf="!this.hidden[booking.id]"
+              (click)="updValue=booking.value;updBudgetBooking=[booking.assignedBudget];updUserBooking=[booking.assignedUser];updProjectBooking=[booking.assignedProject];updBankAccountBooking=[booking.assignedBankAccount];this.hidden[booking.id]= !this.hidden[booking.id]"
+              class="create" size="small" shape="regular" type="button" color="primary"
+              > Edit Booking
+      </button>
+
+
+      <button *ngIf="this.hidden[booking.id]"
+              (click)="updateBooking(booking.id);this.hidden[booking.id]= !this.hidden[booking.id]"
+              class="create" size="small" shape="regular" type="button" color="primary"
+              >Submit
+      </button>
+
+
+    </td>
+
+
+  </tr>
+
+
+</table>
+<h1> Project Table</h1>
+<table>
+
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Budget</th>
+    <th>User</th>
+    <th>Booking</th>
+    <th></th>
+    <th></th>
+
+  </tr>
+  <tr>
+    <th><input type="name" [(ngModel)]="name" placeholder="Name" style="width: 250px;"></th>
+    <th><input type="text" [(ngModel)]="description" placeholder="Description" style="width: 250px;">
+    </th>
+    <th><input type="text" [(ngModel)]="assignedBudgetProject" placeholder="Budget" style="width: 250px;">
+    </th>
+    <th><input type="text" [(ngModel)]="assignedUserProject" placeholder="User" style="width: 250px;">
+    </th>
+    <th><input type="text" [(ngModel)]="assignedBookingProject" placeholder="Booking" style="width: 250px;">
+    <th>
+      <button (click)="createProject()" class="create" size="regular" shape="regular" type="button" color="primary"
+              >Create a Project
+      </button>
+    </th>
+    <th>
+      <button (click)="getAllProjects()" size="regular" shape="regular" type="button" color="primary"
+              >Get All Projects
+      </button>
+    </th>
+  </tr>
+  <tr class="genre" *ngFor="let pj of project ">
+    <td>
+      <div>{{pj.id}}</div>
+
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[pj.id]" style="width: 250px;margin-top: 5px">{{pj.name}}</div>
+
+      <input *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updName" style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[pj.id]" style="width: 250px;margin-top: 5px">{{pj.description}}</div>
+      <input *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updDescription" style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[pj.id]" style="width: 250px;margin-top: 5px">{{pj.assignedBudget}}</div>
+      <input *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updAssignedBudgetProject"
+             style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[pj.id]" style="width: 250px;margin-top: 5px">{{pj.assignedUser}}</div>
+      <input *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updAssignedUserProject"
+             style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[pj.id]" style="width: 250px;margin-top: 5px">{{pj.assignedBooking}}</div>
+      <input *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updAssignedBookingProject"
+             style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+
+      <button *ngIf="this.hidden[pj.id]" (click)="deleteProject(pj.id);this.hidden[pj.id] =!this.hidden[pj.id]">Delete User</button>
+
+
+
+      <button *ngIf="!this.hidden[pj.id]"
+              (click)="updName=pj.name;updDescription=pj.description;updAssignedBudgetProject=[pj.assignedBudget];updAssignedUserProject=pj.assignedUser;updAssignedBookingProject=pj.assignedBooking;this.hidden[pj.id] =!this.hidden[pj.id]">
+        Edit
+      </button>
+
+
+      <button *ngIf="this.hidden[pj.id]"
+              (click)="updateProject(pj.id);this.hidden[pj.id]= !this.hidden[pj.id]"
+              class="create" size="small" shape="regular" type="button" color="primary"
+              >Submit
+      </button>
+
+
+    </td>
+
+
+  </tr>
+
+
+</table>

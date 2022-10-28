@@ -1,7 +1,13 @@
 import {Project} from "./project.model";
+import {Booking} from "./booking.model";
 
-export interface Budget{
+export interface Budget {
   id:number
-  budget:number
-  project:Project
+  startDate:Date,
+  endDate:Date,
+  value:number,
+  authorized:boolean,
+  assignedProject:Project,
+  assignedBooking:Booking[]
+
 }

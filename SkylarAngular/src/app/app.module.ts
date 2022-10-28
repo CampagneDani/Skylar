@@ -19,9 +19,6 @@ import {ManagementGuardService} from "../guard/management-guard.service";
   declarations: [
     AppComponent,
     routingComponents,
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -32,8 +29,6 @@ import {ManagementGuardService} from "../guard/management-guard.service";
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-
-
   ],
   providers: [UserService,AdminGuardService,FinanceGuardService,ManagementGuardService],
   bootstrap: [AppComponent]

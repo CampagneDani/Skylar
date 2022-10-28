@@ -1,1 +1,51 @@
-<h1 style="color: red">Working Project List (missing statements of Service and other Backend stuff)</h1>
+
+<h1>Project list</h1>
+<p> You can Change variables by Clicking on Edit. Input fields will appear and you can either submit your new data or you can delete the user!
+</p>
+<p>It´s mainly for the use of assigning roles for new users!</p>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Budget</th>
+    <th>Users</th>
+    <th>Booking</th>
+  </tr>
+  <tr class="genre" *ngFor="let pj of project ">
+    <td>
+      <div>{{pj.id}}</div>
+
+    </td>
+    <td>
+      <div  *ngIf="!this.hidden[pj.id]"style="width: 250px;margin-top: 5px">{{pj.name}}</div>
+
+      <input *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updName"style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[pj.id]" style="width: 250px;margin-top: 5px">{{pj.description}}</div>
+      <input *ngIf="this.hidden[pj.id]"  type="text" [(ngModel)]="updDescription"style="width: 250px;margin-top: 5px">
+    </td>
+    <td> <div *ngIf="!this.hidden[pj.id]" style="width: 250px;margin-top: 5px">{{pj.assignedBudget}}</div>
+      <input *ngIf="this.hidden[pj.id]"  type="text" [(ngModel)]="updAssignedBudgetProject"style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div  *ngIf="!this.hidden[pj.id]"style="width: 250px;margin-top: 5px">{{pj.assignedUser}}</div>
+      <input  *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updAssignedUserProject" style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div  *ngIf="!this.hidden[pj.id]"style="width: 250px;margin-top: 5px">{{pj.assignedBooking}}</div>
+      <input  *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updAssignedBookingProject" style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div style="width: 250px;margin-top: 5px">´</div>
+      <button *ngIf="!this.hidden[pj.id]" (click)="updName=pj.name;updDescription=pj.description;updAssignedBudgetProject=[pj.assignedBudget];updAssignedUserProject=pj.assignedUser;updAssignedBookingProject=pj.assignedBooking;this.hidden[pj.id] =!this.hidden[pj.id]">Edit</button>
+      <button *ngIf="this.hidden[pj.id]" (click)="updateProject(pj.id);this.hidden[pj.id] =!this.hidden[pj.id]">Submit Change</button>
+      <button *ngIf="this.hidden[pj.id]" (click)="deleteProject(pj.id);this.hidden[pj.id] =!this.hidden[pj.id]">Delete User</button>
+      <button *ngIf="this.hidden[pj.id]" (click)="this.hidden[pj.id]=!this.hidden[pj.id]">Close</button>
+    </td>
+
+
+  </tr>
+</table>

@@ -1,10 +1,14 @@
 import {User} from "./user.model";
+
+import {Booking} from "./booking.model";
 import {Budget} from "./budget.model";
 
 export interface Project{
   id:number
-  projectname:string
+  name:string
   description:string
-  user:User[];
-  budget:Budget
+  assignedBudget:Budget
+  assignedUser:User[]
+  assignedBooking:Booking[]
+
 }

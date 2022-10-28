@@ -18,7 +18,7 @@ export class RegistrationComponent implements OnInit{
       {
         this.router.navigate(['/login']);
       },
-      5000);
+      4000);
   }
   popUpToLogin(){
     alert("You will be redirected to the Login Page in just a moment!")

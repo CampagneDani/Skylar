@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {User} from "../models/user.model";
 import {Project} from "../models/project.model";
+import {Booking} from "../models/booking.model";
 import {Budget} from "../models/budget.model";
 
 @Injectable({
@@ -11,29 +12,27 @@ import {Budget} from "../models/budget.model";
 export class ProjectService {
 
   constructor(private http: HttpClient) { }
-  userURL = 'http://localhost:8080/project';
+  projectURL = 'http://localhost:8080/project';
   getAllProjects(){
-    return this.http.get<Project[]>(this.userURL);
+    return this.http.get<Project[]>(this.projectURL);
   }
 
-  createProject(project: {projectname:string
-    description:string
-    user:User[];
-    budget:Budget }): Observable<Project> {
-    return this.http.post<Project>(this.userURL, project);
+  createProject(project: { assignedBooking: Booking[]; name: string; description: string; assignedBudget: Budget[]; assignedUser: User[] }): Observable<Project> {
+    return this.http.post<Project>(this.projectURL, project);
   }
 
   deleteProject(id: number): Observable<unknown> {
-    const url = `${this.userURL}/${id}`
+    const url = `${this.projectURL}/${id}`
     return this.http.delete(url)
   }
 
-  findByTitle(projectname: string): Observable<Project[]> {
-    return this.http.get<Project[]>(`${this.userURL}?projectname=${projectname}`);
+  findByTitle(name: string): Observable<Project[]> {
+    return this.http.get<Project[]>(`${this.projectURL}?name=${name}`);
   }
-  updateProject(project: { projectname: string, description:string; user: User[]; budget: Budget[] },
+
+  updateProject(project: { assignedBooking: Booking[]; name: string; description: string; assignedBudget: Budget[]; assignedUser: User[]; },
                 id: number):Observable<Project>{
-    const url = `${this.userURL}/${id}`
+    const url = `${this.projectURL}/${id}`
     return this.http.put<Project>(url,project)
   }
 }
