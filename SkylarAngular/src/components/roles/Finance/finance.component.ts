@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from "../../../models/user.model";
 import {Booking} from "../../../models/booking.model";
 import {BankAccountService} from "../../../services/bankaccount.service";
@@ -7,84 +7,100 @@ import {Budget} from "../../../models/budget.model";
 import {Project} from "../../../models/project.model";
 import {BookingService} from "../../../services/booking.service";
 import {ProjectService} from "../../../services/project.service";
+import {UserService} from "../../../services/user.service";
+import {AuthenticationService} from "../../../services/authentication.service";
 
 @Component({
   selector: 'app-finance',
   templateUrl: './finance.component.html',
   styleUrls: ['./finance.component.css']
 })
-export class FinanceComponent {
-  constructor(private baService:BankAccountService,
-              private bookingService:BookingService,
-              private projectService:ProjectService) {
+export class FinanceComponent implements OnInit {
+  constructor(private baService: BankAccountService,
+              private bookingService: BookingService,
+              private projectService: ProjectService,
+              private userService: UserService,
+              public authService: AuthenticationService) {
   }
 
-// ------------------BankAccount Variables-----------------------------------
+  bankAccounts: BankAccount[] = [];
+  users: User[] = []
+  booking: Booking[] = []
+  budgets: Budget[] = []
+  projects: Project[] = []
+
+
+  getAllUser() {
+    this.userService.getAllUser().subscribe((dto: User[]) => {
+      this.users = dto;
+    })
+  }
+
+  // ------------------BankAccount Variables-----------------------------------
   // Create BankAccount
-  saldo =0
-  assignedUserBA: User[] = [];
-  assignedBookingBA: Booking[] = []
-  bankAcc:BankAccount[]=[]
+  saldo = 0
+  bankName=""
+  assignedUserBA: number | undefined;
 
   // Update BankAccount
-  updSaldo =0
-  updAssignedUserBA: User[] = [];
-  updAssignedBookingBA: Booking[] = []
+  updSaldo = 0
+  updBankName=""
+  updAssignedUserBA: number | undefined
 
 
 // ------------------Booking Variables-----------------------------------
   // Create Booking
-  date=Date()
-  value=0
-  budgetBooking:Budget[]=[]
-  userBooking:User[]=[]
-  projectBooking:Project[]=[]
-  bankAccountBooking=[]=[]
-  booking:Booking[]=[]
+  date = Date()
+  value = 0
+  budgetB: number | undefined;
+  //userB: number|undefined;
+  projectB: number | undefined
+  bankAccountB: number | undefined
 
   // Update Booking
-  updDate=Date()
-  updValue=0
-  updBudgetBooking:Budget[]=[]
-  updUserBooking:User[]=[]
-  updProjectBooking:Project[]=[]
-  updBankAccountBooking: BankAccount[]=[]
+  updDate = Date()
+  updValue = 0
+  updBudgetB: number | undefined;
+  updUserB: number | undefined;
+  updProjectB: number | undefined
+  updBankAccountB: number | undefined;
 
 // ------------------Project Variables-----------------------------------
   // Create Projects
   name = ""
   description = "";
-  assignedBudgetProject: Budget[] = [];
-  assignedUserProject: User[] = [];
-  assignedBookingProject: Booking[] = []
-  project: Project[] = []
+  userP: number[] | undefined;
+
 
   // Update Project
   updName = ""
   updDescription = "";
-  updAssignedBudgetProject: Budget[] = [];
-  updAssignedUserProject: User[] = [];
-  updAssignedBookingProject: Booking[] = []
-  updProject: Project[] = []
+  updUserP: number[]=[]
+
   //-------------------Other Variables--------------------------
   hidden = [false]
 
   ngOnInit() {
     this.getAllBankAccounts()
+    this.getAllUser()
     this.getAllBookings()
+    this.getAllProjects()
+
+    //this.getAllBookings()
   }
+
 //--------------------------Bank Accounts------------------------------------
   getAllBankAccounts() {
     this.baService.getAllBankAccounts().subscribe((dto: BankAccount[]) => {
-      this.bankAcc = dto;
+      this.bankAccounts = dto;
     })
   }
 
   createBankAccount() {
-    this.baService.createBankAccont({
-      saldo:this.saldo,
-      assignedBookings:this.assignedBookingBA,
-      assignedUser:this.assignedUserBA,
+    this.baService.createBankAccount({
+      saldo: this.saldo,
+      bankName:this.bankName,
+      assignedUserId: this.authService.getUserId()!,
 
     }).subscribe(user => {
       this.getAllBankAccounts()
@@ -94,8 +110,8 @@ export class FinanceComponent {
   updateBankAccount(id: number) {
     this.baService.updateBankAccount({
       saldo: this.updSaldo,
-      assignedBookings: this.updAssignedBookingBA,
-      assignedUser: this.updAssignedUserBA,
+      bankName:this.updBankName,
+      assignedUserId: this.updAssignedUserBA!,
     }, id).subscribe(project => {
 
       this.getAllBankAccounts()
@@ -116,16 +132,17 @@ export class FinanceComponent {
     this.bookingService.getAllBookings().subscribe((dto: Booking[]) => {
       this.booking = dto;
     })
-}
+  }
 
-createBookings() {
+  createBookings() {
     this.bookingService.createBooking({
-      date:this.date,
-      value:this.value,
-      assignedBudget:this.budgetBooking,
-      assignedUser:this.userBooking,
-      assignedProject:this.projectBooking,
-      assignedBankAccount:this.bankAccountBooking,
+      date: this.date,
+      value: this.value,
+      assignedBudgetId: this.budgetB!,
+      assignedUserId: this.authService.getUserId()!,
+      assignedProjectId: this.projectB!,
+      assignedBankAccountId: this.bankAccountB!,
+
 
     }).subscribe(user => {
       this.getAllBookings()
@@ -134,12 +151,12 @@ createBookings() {
 
   updateBooking(id: number) {
     this.bookingService.updateBooking({
-      date:this.updDate,
-      value:this.updValue,
-      assignedBudget:this.updBudgetBooking,
-      assignedUser:this.updUserBooking,
-      assignedProject:this.updProjectBooking,
-      assignedBankAccount:this.updBankAccountBooking,
+      date: this.updDate,
+      value: this.updValue,
+      assignedBudgetId: this.updBudgetB!,
+      assignedUserId: this.updUserB!,
+      assignedProjectId: this.updProjectB!,
+      assignedBankAccountId: this.updBankAccountB!,
 
     }, id).subscribe(project => {
 
@@ -154,10 +171,11 @@ createBookings() {
       this.getAllBookings()
     })
   }
+
 //--------------------------Projects------------------------------------
   getAllProjects() {
     this.projectService.getAllProjects().subscribe((dto: Project[]) => {
-      this.project = dto;
+      this.projects = dto;
     })
   }
 
@@ -165,9 +183,7 @@ createBookings() {
     this.projectService.createProject({
       name: this.name,
       description: this.description,
-      assignedBudget: this.assignedBudgetProject,
-      assignedBooking: this.assignedBookingProject,
-      assignedUser: this.assignedUserProject,
+      assignedUserIds: this.userP!,
 
     }).subscribe(user => {
       this.getAllProjects()
@@ -178,9 +194,7 @@ createBookings() {
     this.projectService.updateProject({
       name: this.updName,
       description: this.updDescription,
-      assignedBudget: this.updAssignedBudgetProject,
-      assignedBooking: this.updAssignedBookingProject,
-      assignedUser: this.updAssignedUserProject,
+      assignedUserIds: this.updUserP!,
     }, id).subscribe(project => {
 
       this.getAllProjects()

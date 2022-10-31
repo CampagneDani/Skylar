@@ -6,4 +6,7 @@ body {
   background-size: cover;
 }
 
+hr{
+  border: solid 5px black;
 
+}

@@ -37,9 +37,9 @@ export class BudgetListComponent implements OnInit {
   truefalse=[true,false]
 
   ngOnInit() {
-    this.getAllBudgets()
+//    this.getAllBudgets()
   }
-
+/*
   //--------------------------Budgets------------------------------------
 
   getAllBudgets() {
@@ -84,4 +84,6 @@ export class BudgetListComponent implements OnInit {
       this.getAllBudgets()
     })
   }
+*/
 }
+

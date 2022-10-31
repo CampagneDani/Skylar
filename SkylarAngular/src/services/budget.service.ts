@@ -16,7 +16,7 @@ export class BudgetService {
     return this.http.get<Budget[]>(this.budgetURL);
   }
 
-  createBudget(budget: { assignedBooking: Budget[]; endDate: string; assignedProject: Project[]; authorized: boolean; value: number; startDate: string }): Observable<Budget> {
+  createBudget(budget: { endDate: string; assignedProjectId: Project['id']; authorized: boolean; value: number; startDate: string }): Observable<Budget> {
     return this.http.post<Budget>(this.budgetURL, budget);
   }
 
@@ -29,7 +29,7 @@ export class BudgetService {
     return this.http.get<Budget[]>(`${this.budgetURL}?project=${project}`);
   }
 
-  updateBudget(budget: { assignedBooking: Booking[]; endDate: string; assignedProject: Project[]; authorized: boolean; value: number; startDate: string },
+  updateBudget(budget: { endDate: string; assignedProjectId: Project['id']; authorized: boolean; value: number; startDate: string },
                id: number):Observable<Budget>{
     const url = `${this.budgetURL}/${id}`
     return this.http.put<Budget>(url,budget)

@@ -41,8 +41,8 @@
     <td>
       <div style="width: 250px;margin-top: 5px">´</div>
       <button *ngIf="!this.hidden[pj.id]" (click)="updName=pj.name;updDescription=pj.description;updAssignedBudgetProject=[pj.assignedBudget];updAssignedUserProject=pj.assignedUser;updAssignedBookingProject=pj.assignedBooking;this.hidden[pj.id] =!this.hidden[pj.id]">Edit</button>
-      <button *ngIf="this.hidden[pj.id]" (click)="updateProject(pj.id);this.hidden[pj.id] =!this.hidden[pj.id]">Submit Change</button>
-      <button *ngIf="this.hidden[pj.id]" (click)="deleteProject(pj.id);this.hidden[pj.id] =!this.hidden[pj.id]">Delete User</button>
+     <!-- <button *ngIf="this.hidden[pj.id]" (click)="updateProject(pj.id);this.hidden[pj.id] =!this.hidden[pj.id]">Submit Change</button>
+      <button *ngIf="this.hidden[pj.id]" (click)="deleteProject(pj.id);this.hidden[pj.id] =!this.hidden[pj.id]">Delete User</button> -->
       <button *ngIf="this.hidden[pj.id]" (click)="this.hidden[pj.id]=!this.hidden[pj.id]">Close</button>
     </td>
 

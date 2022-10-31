@@ -16,6 +16,10 @@ export class ManagementComponent implements OnInit {
               private budgetService: BudgetService) {
 
   }
+  ngOnInit() {
+  }
+
+  /*
   // ------------------Project Variables-----------------------------------
   // Create Projects
   name = ""
@@ -146,6 +150,6 @@ export class ManagementComponent implements OnInit {
     })
   }
 
-
+*/
 }
 

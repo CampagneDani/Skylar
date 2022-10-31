@@ -35,6 +35,9 @@ export class AuthenticationService {
   getUsername():string|null{
     return localStorage.getItem("username")
   }
+  getUserId():number|null{
+     return Number.parseInt(localStorage.getItem("id")!)
+  }
 
 
 }

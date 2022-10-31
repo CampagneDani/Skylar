@@ -36,8 +36,9 @@ export class ProjectListComponent implements OnInit {
   hidden = [false]
 
   ngOnInit() {
-    this.getAllProjects()
+   // this.getAllProjects()
   }
+  /*
 //--------------------------Projects------------------------------------
   getAllProjects() {
     this.projectService.getAllProjects().subscribe((dto: Project[]) => {
@@ -78,6 +79,6 @@ export class ProjectListComponent implements OnInit {
       this.getAllProjects()
     })
   }
-
+*/
 
 }

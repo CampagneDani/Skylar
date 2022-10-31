@@ -20,7 +20,7 @@ export class BankAccountService {
     return this.http.get<BankAccount[]>(this.bankAccountURL);
   }
 
-  createBankAccont(account: { saldo:number,assignedBookings:Booking[],assignedUser:User[] }): Observable<BankAccount> {
+  createBankAccount(account: { saldo: number;bankName:string; assignedUserId: User["id"] }): Observable<BankAccount> {
     return this.http.post<BankAccount>(this.bankAccountURL, account);
   }
 
@@ -29,7 +29,7 @@ export class BankAccountService {
     return this.http.delete(url)
   }
 
-  updateBankAccount(account: {saldo:number,assignedBookings:Booking[],assignedUser:User[] },
+  updateBankAccount(account: {saldo:number,bankName:string,assignedUserId:User['id']},
                     id: number):Observable<BankAccount>{
     const url = `${this.bankAccountURL}/${id}`
     return this.http.put<BankAccount>(url,account)
