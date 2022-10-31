@@ -16,54 +16,32 @@ export class ManagementComponent implements OnInit {
               private budgetService: BudgetService) {
 
   }
-  ngOnInit() {
-  }
 
-  /*
-  // ------------------Project Variables-----------------------------------
-  // Create Projects
-  name = ""
-  description = "";
-  assignedBudgetProject: Budget[] = [];
-  assignedUserProject: User[] = [];
-  assignedBookingProject: Booking[] = []
-  project: Project[] = []
-
-  // Update Project
-  updName = ""
-  updDescription = "";
-  updAssignedBudgetProject: Budget[] = [];
-  updAssignedUserProject: User[] = [];
-  updAssignedBookingProject: Booking[] = []
-  updProject: Project[] = []
-
-  //-------------------Budget Variables--------------------------
+  budget: Budget[] = []
+//-------------------Budget Variables--------------------------
   // Create Budgets
   startDate = Date()
   endDate = Date()
   value = 0
   authorized = false
-  assignedProjectBudget: Project[] = []
-  assignedBookingBudget:Budget[]=[]
-  budget: Budget[] = []
+  assignedProjectBudget:number|undefined
+
 
   //Update Budgets
   updStartDate = Date()
   updEndDate = Date()
   updValue = 0
   updAuthorized = false
-  updAssignedProjectBudget: Project[] = []
-  updAssignedBookingBudget: Booking[] = []
+  updAssignedProjectBudget: number|undefined
 
   //-------------------Other Variables--------------------------
   hidden = [false]
   truefalse=[true,false]
 
   ngOnInit() {
-    this.getAllProjects()
     this.getAllBudgets()
   }
-
+/*
 //--------------------------Projects------------------------------------
   getAllProjects() {
     this.projectService.getAllProjects().subscribe((dto: Project[]) => {
@@ -104,7 +82,7 @@ export class ManagementComponent implements OnInit {
       this.getAllProjects()
     })
   }
-
+*/
   //--------------------------Budgets------------------------------------
 
   getAllBudgets() {
@@ -119,9 +97,7 @@ export class ManagementComponent implements OnInit {
       endDate: this.endDate,
       value: this.value,
       authorized: this.authorized,
-      assignedProject: this.assignedProjectBudget,
-      assignedBooking: this.assignedBookingBudget,
-
+      assignedProjectId: this.assignedProjectBudget!,
 
     }).subscribe(user => {
       this.getAllBudgets()
@@ -134,8 +110,7 @@ export class ManagementComponent implements OnInit {
       endDate: this.updEndDate,
       value: this.updValue,
       authorized: this.updAuthorized,
-      assignedProject: this.updAssignedProjectBudget,
-      assignedBooking: this.updAssignedBookingBudget,
+      assignedProjectId:this.updAssignedProjectBudget!
     }, id).subscribe(project => {
 
       this.getAllBudgets()
@@ -150,6 +125,6 @@ export class ManagementComponent implements OnInit {
     })
   }
 
-*/
+
 }
 
