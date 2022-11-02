@@ -83,7 +83,9 @@
                 class="nav-item active"><a class="dropdown-item" href="/login" (click)="authService.logoutUser()">Logout</a></li>
           </ul>
           </li>
-          <a class="nav-link" >{{authService.getUsername()}}</a>
+          <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin' || authService.getRole() ==='Finance'">
+            <a class="nav-link" style="color: #1d2124;" >User: {{authService.getUsername()}}</a>
+          <a class="nav-link" style="color: #1d2124">Role: {{authService.getRole()}}</a> </li>
         </ul>
 
 

@@ -31,7 +31,8 @@ export class FinanceComponent implements OnInit {
   budgets: Budget[] = []
   projects: Project[] = []
   budget:Budget[]=[]
-
+  hidden = [false]
+  truefalse=[true,false]
 
   getAllUser() {
     this.userService.getAllUser().subscribe((dto: User[]) => {
@@ -59,7 +60,6 @@ export class FinanceComponent implements OnInit {
   // Create BankAccount
   saldo = 0
   bankName=""
-  assignedUserBA: number | undefined;
 
   // Update BankAccount
   updSaldo = 0
@@ -97,16 +97,13 @@ export class FinanceComponent implements OnInit {
   updUserP: number[]=[]
 
   //-------------------Other Variables--------------------------
-  hidden = [false]
-  truefalse=[true,false]
+
   ngOnInit() {
     this.getAllBankAccounts()
     this.getAllUser()
     this.getAllBookings()
     this.getAllProjects()
     this.getAllBudgets()
-
-    //this.getAllBookings()
   }
 
 //--------------------------Bank Accounts------------------------------------
@@ -124,6 +121,7 @@ export class FinanceComponent implements OnInit {
 
     }).subscribe(user => {
       this.getAllBankAccounts()
+      console.log(user)
     })
   }
 
@@ -132,10 +130,10 @@ export class FinanceComponent implements OnInit {
       saldo: this.updSaldo,
       bankName:this.updBankName,
       assignedUserId: this.updAssignedUserBA!,
-    }, id).subscribe(project => {
+    }, id).subscribe(bankAcc => {
 
       this.getAllBankAccounts()
-
+      console.log(bankAcc)
     })
 
   }
@@ -166,6 +164,7 @@ export class FinanceComponent implements OnInit {
 
     }).subscribe(user => {
       this.getAllBookings()
+      console.log(user)
     })
   }
 
@@ -178,10 +177,10 @@ export class FinanceComponent implements OnInit {
       assignedProjectId: this.updProjectB!,
       assignedBankAccountId: this.updBankAccountB!,
 
-    }, id).subscribe(project => {
+    }, id).subscribe(booking => {
 
       this.getAllBookings()
-
+      console.log(booking)
     })
 
   }
@@ -205,8 +204,9 @@ export class FinanceComponent implements OnInit {
       description: this.description,
       assignedUserIds: this.userP!,
 
-    }).subscribe(user => {
+    }).subscribe(project => {
       this.getAllProjects()
+      console.log(project)
     })
   }
 
@@ -218,7 +218,7 @@ export class FinanceComponent implements OnInit {
     }, id).subscribe(project => {
 
       this.getAllProjects()
-
+      console.log(project)
     })
 
   }
@@ -233,7 +233,7 @@ export class FinanceComponent implements OnInit {
 
   getAllBudgets() {
     this.budgetService.getAllBudget().subscribe((dto: Budget[]) => {
-      this.budget = dto;
+      this.budgets = dto;
     })
   }
 
@@ -245,8 +245,9 @@ export class FinanceComponent implements OnInit {
       authorized: this.authorized,
       assignedProjectId: this.assignedProjectBudget!,
 
-    }).subscribe(user => {
+    }).subscribe(budget => {
       this.getAllBudgets()
+      console.log(budget)
     })
   }
 
@@ -257,9 +258,10 @@ export class FinanceComponent implements OnInit {
       value: this.updValueB,
       authorized: this.updAuthorized,
       assignedProjectId:this.updAssignedProjectBudget!
-    }, id).subscribe(project => {
+    }, id).subscribe(budget => {
 
       this.getAllBudgets()
+      console.log(budget)
 
     })
 

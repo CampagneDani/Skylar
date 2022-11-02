@@ -6,4 +6,13 @@ body {
   background-size: cover;
 }
 
+hr{
+  border: solid 5px black;
 
+}
+h1{
+  color: firebrick;
+}
+table{
+  background-color: lightgray;
+}
