@@ -1,3 +1,113 @@
+<h1> Budget List </h1>
+<table>
+
+  <tr>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Value</th>
+    <th>Authorized</th>
+    <th>Project</th>
+    <th></th>
+    <th></th>
+
+  </tr>
+  <tr>
+    <th><input type="date" [(ngModel)]="startDate" placeholder="Start Date" style="width: 250px;"></th>
+    <th><input type="date" [(ngModel)]="endDate" placeholder="End Date" style="width: 250px;">
+    </th>
+    <th><input type="number" [(ngModel)]="value" placeholder="Value" style="width: 250px;">
+    </th>
+    <th><input type="text" [(ngModel)]="authorized" placeholder="Value" style="width: 250px;">
+    </th>
+    <th>
+      <select [(ngModel)]="assignedProjectBudget">
+        <option *ngFor="let project of projects" [value]="project.id">{{project.name}}</option>
+      </select>
+
+    </th>
+
+    <th>
+      <button (click)="createBudget()" class="create" size="regular" shape="regular" type="button" color="primary"
+              style="margin-bottom: 10px;">Create an Budget
+      </button>
+    </th>
+    <th>
+      <button (click)="getAllBudgets()" size="regular" shape="regular" type="button" color="primary"
+              style="margin-bottom: 10px;">Get All Budgets
+      </button>
+    </th>
+  </tr>
+  <tr class="genre" *ngFor="let bdg of budget ">
+    <td>
+      <div>{{bdg.id}}</div>
+
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.startDate}}</div>
+
+      <input *ngIf="this.hidden[bdg.id]" type="text" [(ngModel)]="updStartDate" style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.endDate}}</div>
+      <input *ngIf="this.hidden[bdg.id]" type="text" [(ngModel)]="updEndDate" style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.value}}</div>
+      <input *ngIf="this.hidden[bdg.id]" type="text" [(ngModel)]="updValue"
+             style="width: 250px;margin-top: 5px">
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.authorized}}</div>
+      <select *ngIf="this.hidden[bdg.id]" [(ngModel)]="updAuthorized">
+        <option *ngFor="let tf of truefalse" [value]="bdg.id">{{truefalse}}</option>
+      </select>
+    </td>
+    <td>
+      <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.assignedProject}}</div>
+      <input *ngIf="this.hidden[bdg.id]" type="text" [(ngModel)]="updAssignedProjectBudget"
+             style="width: 250px;margin-top: 5px">
+      <div *ngIf="!this.hidden[bdg.id]"> {{bdg.assignedProject.name}}
+
+
+      </div>
+      <select [(ngModel)]="updAssignedProjectBudget">
+        <option *ngFor="let project of projects" [value]="project.id">{{project.name}}</option>
+      </select>
+    </td>
+
+    <td>
+
+      <button *ngIf="this.hidden[bdg.id]" (click)="deleteBudget(bdg.id);this.hidden[bdg.id] =!this.hidden[bdg.id]">
+        Delete Budget
+      </button>
+
+
+      <button *ngIf="!this.hidden[bdg.id]"
+              (click)="updValue=bdg.value;updAssignedProjectBudget=bdg.assignedProject.id;this.hidden[bdg.id] =!this.hidden[bdg.id]">
+        Edit
+      </button>
+
+
+      <button *ngIf="this.hidden[bdg.id]"
+              (click)="updateBudget(bdg.id);this.hidden[bdg.id]= !this.hidden[bdg.id]"
+              class="create" size="small" shape="regular" type="button" color="primary">
+        Submit
+      </button>
+
+
+    </td>
+
+
+  </tr>
+
+
+</table>
+
+
+
+
+
+
 <h1>Bank Account Table</h1>
 <table>
 

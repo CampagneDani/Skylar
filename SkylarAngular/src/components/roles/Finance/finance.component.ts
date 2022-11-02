@@ -9,6 +9,7 @@ import {BookingService} from "../../../services/booking.service";
 import {ProjectService} from "../../../services/project.service";
 import {UserService} from "../../../services/user.service";
 import {AuthenticationService} from "../../../services/authentication.service";
+import {BudgetService} from "../../../services/budget.service";
 
 @Component({
   selector: 'app-finance',
@@ -20,6 +21,7 @@ export class FinanceComponent implements OnInit {
               private bookingService: BookingService,
               private projectService: ProjectService,
               private userService: UserService,
+              private budgetService:BudgetService,
               public authService: AuthenticationService) {
   }
 
@@ -28,6 +30,7 @@ export class FinanceComponent implements OnInit {
   booking: Booking[] = []
   budgets: Budget[] = []
   projects: Project[] = []
+  budget:Budget[]=[]
 
 
   getAllUser() {
@@ -35,6 +38,22 @@ export class FinanceComponent implements OnInit {
       this.users = dto;
     })
   }
+  //-------------------Budget Variables--------------------------
+  // Create Budgets
+  startDate = Date()
+  endDate = Date()
+  valueB = 0
+  authorized = false
+  assignedProjectBudget:number|undefined
+
+
+  //Update Budgets
+  updStartDate = Date()
+  updEndDate = Date()
+  updValueB = 0
+  updAuthorized = false
+  updAssignedProjectBudget: number|undefined
+
 
   // ------------------BankAccount Variables-----------------------------------
   // Create BankAccount
@@ -79,12 +98,13 @@ export class FinanceComponent implements OnInit {
 
   //-------------------Other Variables--------------------------
   hidden = [false]
-
+  truefalse=[true,false]
   ngOnInit() {
     this.getAllBankAccounts()
     this.getAllUser()
     this.getAllBookings()
     this.getAllProjects()
+    this.getAllBudgets()
 
     //this.getAllBookings()
   }
@@ -206,6 +226,48 @@ export class FinanceComponent implements OnInit {
   deleteProject(id: number) {
     this.projectService.deleteProject(id).subscribe(() => {
       this.getAllProjects()
+    })
+  }
+
+  //--------------------------Budgets------------------------------------
+
+  getAllBudgets() {
+    this.budgetService.getAllBudget().subscribe((dto: Budget[]) => {
+      this.budget = dto;
+    })
+  }
+
+  createBudget() {
+    this.budgetService.createBudget({
+      startDate: this.startDate,
+      endDate: this.endDate,
+      value: this.valueB,
+      authorized: this.authorized,
+      assignedProjectId: this.assignedProjectBudget!,
+
+    }).subscribe(user => {
+      this.getAllBudgets()
+    })
+  }
+
+  updateBudget(id: number) {
+    this.budgetService.updateBudget({
+      startDate: this.updStartDate,
+      endDate: this.updEndDate,
+      value: this.updValueB,
+      authorized: this.updAuthorized,
+      assignedProjectId:this.updAssignedProjectBudget!
+    }, id).subscribe(project => {
+
+      this.getAllBudgets()
+
+    })
+
+  }
+
+  deleteBudget(id: number) {
+    this.budgetService.deleteBudget(id).subscribe(() => {
+      this.getAllBudgets()
     })
   }
 

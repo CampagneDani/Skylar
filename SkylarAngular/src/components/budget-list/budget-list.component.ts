@@ -16,6 +16,11 @@ export class BudgetListComponent implements OnInit {
               private projectService:ProjectService) {
 
   }
+
+  //-------------------Global Variables--------------------------
+  hidden = [false]
+  truefalse=[true,false]
+
   budget:Budget[]=[]
   projects:Project[]=[]
   getAllProjects() {
@@ -39,9 +44,6 @@ export class BudgetListComponent implements OnInit {
   updAuthorized = false
   updAssignedProjectBudget: number|undefined
 
-  //-------------------Other Variables--------------------------
-  hidden = [false]
-  truefalse=[true,false]
 
   ngOnInit() {
   this.getAllBudgets()
