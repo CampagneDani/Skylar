@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+<body>
 <h1> Budget List </h1>
 <table>
 
@@ -100,7 +102,6 @@
 
 
 </table>
-<hr>
 
 
 
@@ -145,7 +146,7 @@
     </td>
     <td>
 
-      <div *ngIf="!this.hidden[ba.id]">{{ba.bankName}}</div>
+      <div *ngIf="!this.hidden[ba.id]">{{ba.bankAccountName}}</div>
 
 
       <input *ngIf="this.hidden[ba.id]" type="text" [(ngModel)]="updBankName" placeholder="Name"
@@ -196,7 +197,7 @@
 
 
 </table>
-<hr>
+
 <br>
 <br>
 <h1>Booking Table</h1>
@@ -218,7 +219,7 @@
     </th>
     <th>
       <select [(ngModel)]="budgetB" style="width: 150px">
-        <option *ngFor="let budget of budgets" [value]="budget.id">{{budget.assignedProject}}</option>
+        <option *ngFor="let budget of budgets" [value]="budget.id">{{budget.value}}</option>
       </select>
       <!--<input type="text" [(ngModel)]="budgetB" placeholder="Bookings" style="width: 250px;">-->
 
@@ -231,7 +232,7 @@
 
     <th>
       <select [(ngModel)]="bankAccountB"style="width: 150px">
-        <option *ngFor="let bankAccount of bankAccounts" [value]="bankAccount.id">{{bankAccount.bankName}}</option>
+        <option *ngFor="let bankAccount of bankAccounts" [value]="bankAccount.id">{{bankAccount.bankAccountName}}</option>
       </select>
       <!--<input type="text" [(ngModel)]="bankAccountB" placeholder="BankAccount" style="width: 250px;">-->
     </th>
@@ -303,12 +304,12 @@
        <input *ngIf="this.hidden[booking.id]" type="text" [(ngModel)]="updBankAccountBooking" placeholder="BankAccount"
               style="width: 250px;">-->
 
-      <div *ngIf="!this.hidden[booking.id]"> {{booking.assignedBankAccount.bankName}}
+      <div *ngIf="!this.hidden[booking.id]"> {{booking.assignedBankAccount.bankAccountName}}
 
 
       </div>
       <select [(ngModel)]="updBankAccountB" style="width: 150px">
-        <option *ngFor="let bankAccount of bankAccounts" [value]="bankAccount.id">{{bankAccount.bankName}}</option>
+        <option *ngFor="let bankAccount of bankAccounts" [value]="bankAccount.id">{{bankAccount.bankAccountName}}</option>
       </select>
     </td>
     <td>
@@ -339,7 +340,7 @@
 
 
 </table>
-<hr>
+
 
 <h1> Project Table</h1>
 <table>
@@ -417,5 +418,6 @@
 
 
 </table>
-<hr>
 
+
+</body>

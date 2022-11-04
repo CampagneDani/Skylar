@@ -4,7 +4,7 @@ import {User} from "./user.model";
 export interface BankAccount{
   id:number
   saldo:number,
-  bankName:string
+  bankAccountName:string
   assignedBookings:Booking[]
   assignedUser:User
 

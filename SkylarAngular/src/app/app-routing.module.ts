@@ -12,6 +12,7 @@ import {ManagementGuardService} from "../guard/management-guard.service";
 import {UserListComponent} from "../components/user-list/user-list.component";
 import {ProjectListComponent} from "../components/project-list/project-list.component";
 import {BudgetListComponent} from "../components/budget-list/budget-list.component";
+import {NavbarComponent} from "../components/navbar/navbar.component";
 
 const routes: Routes = [
   //Routes can be reached by "/..."
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path:'Finance',component:FinanceComponent, canActivate:[FinanceGuardService]},
   { path:'Management',component:ManagementComponent,canActivate:[ManagementGuardService]},
   { path:'budget-list',component:BudgetListComponent,canActivate:[ManagementGuardService]},
+
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -30,5 +32,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 // Constant variable for every possible used HTML in Router-Outlet(in app-component)
-export const routingComponents =[BudgetListComponent,ProjectListComponent,UserListComponent,ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
+export const routingComponents =[BudgetListComponent,NavbarComponent,ProjectListComponent,UserListComponent,ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
 

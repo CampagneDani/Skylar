@@ -1,9 +1,431 @@
 body {
-  background-image: url("src/assets/img/cool-background.png");
-  height: 100%;
+  background-image: url("src/assets/img/backgroundOAGARGE.jpg");
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+
+
+/* Start: Header */
+header {
+  /*background-image: url("../img/bg.jpg"); */
+  background-size: cover;
+  height: 100vh;
+  background-position: 0 -100px;
+}
+
+.brand-wrapper {
+  margin-top: 40px;
+  float: left;
+}
+
+.brand-wrapper a.brand {
+  text-decoration: none;
+  font-weight: 700;
+  color: beige;
+  font-size: 32px;
+  margin-top: -8px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+header nav {
+  float: right;
+  margin-top: 40px;
+}
+
+header nav ul li {
+  float: left;
+  list-style-type: none;
+  margin-right: 30px;
+}
+
+header ul li a {
+  color: beige;
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+header ul li a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.slogan {
+  color:beige;
+  text-align: center;
+  padding-top: 24vh;
+  text-shadow: 0 0 2px #000;
+}
+
+.slogan-headline {
+  font-size: 170%;
+}
+
+.slogan-text {
+  font-size: 50px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+button.btn.btn-outline-primary {
+  text-shadow: 0 0 2px lightgray;
+  border-color: beige;
+  font-weight: 400;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 32px;
+  font-size: 20px;
+  background-color: unset;
+}
+
+button.btn.btn-outline-primary:hover {
+  background-color: beige;
+  color: #222;
+  text-shadow: 0 0 0 #222;
+}
+/* Ende: Header */
+
+
+/* Start: Development/Branding */
+section.development, section.branding {
+  padding: 100px 0;
+}
+section.development{
+  background-color: gray;
+}
+section.branding {
+  background-color: lightgray;
+}
+
+section.development .development-headline h1, section.branding .branding-headline h1 {
+  font-weight: 100;
+  color: #222;
+}
+
+section.development .development-text p, section.branding .branding-text p {
+  color: beige;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+section.development .development-icon, section.branding .branding-icon {
+  text-align: center;
+}
+
+section.development .development-icon i, section.branding .branding-icon i {
+  font-size: 1400%;
+  color: #e0e0e0;
+}
+/* Ende: Development/Branding */
+
+
+/* Start: Features */
+.features {
+  padding: 100px 0;
+}
+
+.features .col-md-6 {
+  margin: 20px 0;
+}
+section.features{
+  background-color: gray;
+}
+.features-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #222;
+  border-radius: 50%;
+  color: beige;
+  text-align: center;
+  font-size: 30px;
+  padding-top:10px;
+  float: left;
+}
+
+.features-text {
+  margin-left: 90px;
+
+}
+
+.features-text h5 {
+  margin-bottom: 5px;
+  font-size: 140%;
+  font-weight: 400;
+  color: #222;
+}
+
+.features-text p {
+  color: beige;
+}
+/* Ende: Features */
+
+/* Start: Kunden */
+.clients {
+  padding: 80px 0;
+  background-color: #f0f0f0;
+}
+section.clients{
+  background-color: lightgray;
+}
+.clients-heading {
+  text-align: center;
+}
+
+.clients-heading h2 {
+  font-weight: 100;
+  margin-bottom:0;
+  font-size: 400%;
+}
+
+.clients p {
+  color:beige;
+}
+
+.clients .row {
+  margin: 42px 0;
+}
+
+.clients img {
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.clients-quote {
+  margin-top: 40px;
+  border: 2px solid #ccc;
+  padding: 35px 75px 45px 75px;
+  background-color: whitesmoke;
+  border-radius: 3px;
+  font-size: 150%;
+  font-weight: 100;
+  position: relative;
+}
+
+.clients-quote {
+  margin-bottom: 40px;
+
+}
+
+.clients-quote p {
+  margin-bottom: 0;
+  color: gray;
+}
+
+p.clients-quote-offer {
+  font-size: 75%;
+  color: #6274E0;
+}
+
+.arrow-border {
+  position: absolute;
+  border: 15px solid transparent;
+  border-right: 15px solid #ccc;
+  top: calc(50% - 15px);
+  left: -31px;
+
+}
+
+.arrow {
+  position: absolute;
+  border: 13px solid transparent;
+  border-right: 13px solid #fff;
+  top: calc(50% - 13px);
+  left: -26px;
+}
+
+.arrow-border-two {
+  position: absolute;
+  border: 15px solid transparent;
+  border-left: 15px solid #ccc;
+  top: calc(50% - 15px);
+  right: -31px;
+}
+
+.arrow-two {
+  position: absolute;
+  border: 13px solid transparent;
+  border-left: 13px solid #fff;
+  top: calc(50% - 13px);
+  right: -26px;
+}
+/* Ende: Kunden */
+
+/* Start: Companies */
+section.companies {
+  padding: 80px 0;
+
+}
+
+section.companies div.companies-wrapper {
+  text-align: center;
+}
+
+section.companies div.companies-wrapper img {
+  height: 40px;
+}
+/* Ende: Companies */
+
+
+/* Start: Team */
+.team {
+  background-color: #111;
+  color: beige;
+  padding: 80px 0;
+}
+
+.team-head-wrapper {
+  text-align: center;
+}
+
+.team-head-headline h3 {
+  font-weight: 100;
+  margin-bottom:0;
+  font-size: 400%;
+}
+
+.team-head-subline {
+  margin-bottom: 68px;
+  color: #D9D9D9;
+}
+
+.teammember-img-wrapper {
+  text-align: center;
+}
+
+.teammember-img-wrapper img {
+  width: 240px;
+  border-radius: 240px;
+  border: 7px solid beige;
+}
+
+.teammember-name h6 {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.teammember-name p {
+  text-align: center;
+  margin-bottom: 7px;
+}
+
+.teammember-icon {
+  text-align: center;
+}
+
+.teammember-icon-link {
+  color: beige;
+  border: 3px solid beige;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  text-align: center;
+  margin: 0px 5px;
+}
+
+.teammember-icon-link i {
+  margin-top: 10px;
+}
+
+.team-slogan-wrapper {
+  width: 70%;
+  text-align: center;
+  margin: 40px auto 0 auto;
+}
+/* Ende: Team */
+
+
+/* Start: Contact */
+.contact {
+  background-color: #768cf5;
+  padding: 80px 0;
+}
+
+.contact .contact-head-headline h4 {
+  color:beige;
+  font-weight: 100;
+  font-size: 350%;
+}
+
+.contact .contact-head-subline {
+  color: beige;
+  font-weight: 100;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.contact-methods-wrapper {
+  color: beige;
+}
+
+.contact-methods-wrapper div.col-12.col-lg-6 {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 36px;
+}
+
+.contact-icon {
+  width: 40px;
+  text-align: center;
+  display: inline-block;
+}
+
+.contact input, .contact textarea {
+  margin-top: 20px;
+}
+/* Ende Contact */
+
+
+/* Start: Footer */
+footer {
+  background-color: #768cf5;
+  text-align: center;
+  color: beige;
+  font-size: 16px;
+}
+
+footer p {
+  padding: 20px 0;
+}
+/* Ende: Footer */
+
+
+@media screen and (max-width: 575px) {
+}
+
+@media screen and (min-width: 576px) {
+}
+
+@media screen and (min-width: 768px) {
+  .slogan-text {
+    font-size: 600%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .clients-quote {
+    margin-bottom: 0px;
+  }
+
+  .slogan {
+    padding-top: 32vh;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1850px) {
+  .slogan {
+    padding-top: 42vh;
+  }
+}
 

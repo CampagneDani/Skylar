@@ -3,14 +3,403 @@
   <head>
     <meta charset="UTF-8">
     <title>ForYouPage</title>
-  </head>
-  <body>
+  <!--
   <h1>Here comes Your Role:</h1>
   <h1 *ngIf="authService.getRole() == 'Admin'" style="color: red">Welcome Admin</h1>
   <h1 *ngIf="authService.getRole() == 'Finance'" style="color: red">Welcome Finance</h1>
   <h1 *ngIf="authService.getRole() == 'Management'" style="color: red">Welcome Management</h1>
   <h2>Your Username is: {{authService.getUsername()}}</h2>
 
+-->
 
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/dc0460d8c0.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+  <header id="home">
+    <div class="header-nav">
+      <div class="container">
+        <div class="brand-wrapper">
+          <a class="brand" href="/home"><i class="far fa-paper-plane"></i>OAG ARGE</a>
+        </div>
+        <nav>
+          <ul>
+
+            <li><a href="#">Services</a></li>
+
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/login">Skylar</a></li>
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <section>
+      <div class="container">
+        <div class="slogan">
+          <div class="slogan-headline">
+            Personal Solutions?
+          </div>
+          <div class="slogan-text">
+            We make it happen!
+          </div>
+          <button class="btn btn-outline-primary">Learn More</button>
+        </div>
+      </div>
+    </section>
+  </header>
+
+
+
+  <main>
+    <!-- Start: Development -->
+    <section class="development">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="development-headline">
+              <h1>Web <strong>Development</strong></h1>
+            </div>
+            <div class="development-text">
+              <p>Web Development ist ein sehr dynamisches und umfassendes Themengebiet. Es beschäftigt sich sowohl mit Frontend- als auch Backend-Technologien, der Architektur von Web-Anwendungen, Sicherheitsaspekten, der Verwendung von Datenbanken und Deployment-Optionen</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="development-icon">
+              <i class="fa-brands fa-aws"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Ende: Development -->
+
+
+    <!-- Start: Branding -->
+    <section class="branding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="branding-icon">
+              <i class="fas fa-microchip"></i>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="branding-headline">
+              <h1>Idendity <strong>Branding</strong></h1>
+              <div class="branding-text">
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p><br><p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Ende: Branding -->
+
+
+    <!-- Start: Features -->
+    <section class="features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <div class="features-icon">
+                <i class="fa fa-id-card-o" aria-hidden="true"></i>
+              </div>
+              <div class="features-text">
+                <h5>Branding &amp; Idendity</h5>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <div class="features-icon">
+                <i class="fal fa-browser"></i>
+              </div>
+              <div class="features-text">
+                <h5>Web &amp; Graphic Design</h5>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <div class="features-icon">
+                <i class="fab fa-app-store"></i>
+              </div>
+              <div class="features-text">
+                <h5>Mobile App Development</h5>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <div class="features-icon">
+                <i class="fal fa-camcorder"></i>
+              </div>
+              <div class="features-text">
+                <h5>Animations</h5>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <div class="features-icon">
+                <i class="fal fa-star"></i>
+              </div>
+              <div class="features-text">
+                <h5>UI/UX</h5>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <div class="features-icon">
+                <i class="fal fa-camera"></i>
+              </div>
+              <div class="features-text">
+                <h5>Photography</h5>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Ende: Features -->
+
+    <!-- Start: Clients -->
+    <section id="clients" class="clients">
+      <div class="container">
+        <div class="clients-heading">
+          <h2>Awesome <strong>Clients</strong></h2> <br>
+          <p>See what nice things clients said about us</p>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <img src="assets/img/ClientsDeliria.png" alt="blabla" />
+          </div>
+          <div class="col-md-9">
+            <div class="clients-quote">
+              <p>„Mithilfe von Skylar konnten wir unsere Unternehmensinternen Managementaufgaben effizienter gestalten!“</p>
+              <p class="clients-quote-offer">- Delia Fischer, Founder of Westwing</p>
+              <div class="arrow-border"></div>
+              <div class="arrow"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9">
+            <div class="clients-quote">
+              <p>„Das Team von Skylar hat uns durch Sympathie und Kompetenz vollständig überzeugt. Gerne wieder!“</p>
+              <p class="clients-quote-offer">- Dr. Uwe Müller, Owner of Escrypt </p>
+              <div class="arrow-border-two"></div>
+              <div class="arrow-two"></div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <img src="assets/img/ClientsUwe.png" alt="blabla" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Ende: Clients -->
+
+    <!-- Start: Companies -->
+    <section class="companies">
+      <div class="container">
+        <div class="companies-wrapper">
+          <div class="row">
+            <div class="col-6 col-md-3">
+              <img src="assets/img/wordpress.png" alt="Bild"/>
+            </div>
+            <div class="col-6 col-md-3">
+              <img src="assets/img/angular.png" alt="Bild" />
+            </div>
+            <div class="col-6 col-md-3">
+              <img src="assets/img/react.png" alt="Bild" />
+            </div>
+            <div class="col-6 col-md-3">
+              <img src="assets/img/drupal.png" alt="Bild" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Ende: Companies -->
+
+
+    <!-- Start: Team -->
+    <section class="team">
+      <div class="container">
+        <div class="team-head-wrapper">
+          <div class="team-head-headline">
+            <h3>Amazing <strong>Team</strong></h3>
+          </div>
+          <br>
+          <div class="team-head-subline">
+            These wonderful people make work enjoyable.
+          </div>
+        </div>
+        <div class="teammember-wrapper">
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <div class="teammember-img-wrapper">
+                <img src="assets/img/DanielBild.jpg" alt="Marketer" />
+              </div>
+              <div class="teammember-name">
+                <h6>Janik Arndt</h6>
+                <p>Owner</p>
+              </div>
+              <div class="teammember-icon">
+                <a class="teammember-icon-link" href="https://twitter.com">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a class="teammember-icon-link" href="https://facebook.com">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a class="teammember-icon-link" href="https://linkedin.com">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="teammember-img-wrapper">
+                <img src="assets/img/Robin%20Protzmann.jpg" alt="Marketer" />
+              </div>
+              <div class="teammember-name">
+                <h6>Robin Protzmann</h6>
+                <p>Developer</p>
+              </div>
+              <div class="teammember-icon">
+                <a class="teammember-icon-link" href="https://twitter.com">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a class="teammember-icon-link" href="https://facebook.com">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a class="teammember-icon-link" href="https://linkedin.com">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="teammember-img-wrapper">
+                <img src="assets/img/DavidBild.jpg" alt="Marketer" />
+              </div>
+              <div class="teammember-name">
+                <h6>David Hollbach</h6>
+                <p>Sales</p>
+              </div>
+              <div class="teammember-icon">
+                <a class="teammember-icon-link" href="https://twitter.com">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a class="teammember-icon-link" href="https://facebook.com">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team-slogan-wrapper">
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        </div>
+      </div>
+    </section>
+    <!-- Ende: Team -->
+
+    <!-- Start: Contact -->
+    <section class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="contact-head-wrapper">
+              <div class="contact-head-headline">
+                <h4>Say <strong>Hello</strong></h4>
+              </div>
+              <div class="contact-head-subline">
+                Don't be shy, drop us an email and say hello! We are a really nice bunch of people :&rpar;
+              </div>
+            </div>
+            <div class="contact-methods-wrapper">
+              <div class="row">
+                <div class="col-12 col-lg-6">
+                                        <span class="contact-icon">
+                                            <i class="fa-light fa-mobile"></i>
+                                        </span>
+                  +49 123 456 789
+                </div>
+                <div class="col-12 col-lg-6">
+                                        <span class="contact-icon">
+                                            <i class="fa-light fa-envelope"></i>
+                                        </span>
+                  contact@oagarge.com
+                </div>
+                <div class="col-12 col-lg-6">
+                                        <span class="contact-icon">
+                                            <i class="fa-brands fa-twitter"></i>
+                                        </span>
+                  @oagarge
+                </div>
+                <div class="col-12 col-lg-6">
+                                        <span class="contact-icon">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </span>
+                  facebook.com/oagarge
+                </div>
+                <div class="col-12 col-lg-6" ><a style="color: white" href="https://instagram.com/oag.arge">
+                                        <span class="contact-icon">
+                                            <i class="fa-brands fa-instagram"></i>
+                                        </span>
+                  instagram.com/oag.arge</a>
+                </div>
+                <div class="col-12 col-lg-6">
+                                        <span class="contact-icon">
+                                            <i class="fa-brands fa-linkedin"></i>
+                                        </span>
+                  linkedin.com/oagarge
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="contact-form-wrapper">
+              <form method="get" action="send.php">
+                <input class="form-control" type="text" placeholder="Your Name*" required />
+                <input class="form-control" type="email" placeholder="Your Email*" required />
+                <textarea class="form-control" placeholder="Your Message*" rows="10" required></textarea>
+                <input class="btn btn-default" type="submit" value="Sent Message" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Ende: Contact -->
+
+
+    <!-- Start: Footer -->
+    <footer>
+      <div class="container">
+        <hr />
+        <p>&copy; 2022 OAG ARGE by DHBW Stuttgart - Made in Stuttgart</p>
+      </div>
+    </footer>
+    <!-- Ende: Footer -->
+  </main>
   </body>
-</html>
+  </html>
+
+

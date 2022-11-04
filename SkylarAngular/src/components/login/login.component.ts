@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../services/authentication.service";
 
 @Component({
@@ -13,14 +13,17 @@ export class LoginComponent{
 constructor(private router:Router,
             private userService:UserService,
             private authenticationService: AuthenticationService,
+            private formBuilder:FormBuilder,
 
             ) {
 }
-  //LoginForm to get Validators in HTML Input Tags
-  loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl(['', Validators.required, Validators.minLength(5)])
-  });
+
+      //LoginForm to get Validators in HTML Input Tags
+        loginForm = new FormGroup({
+        username: new FormControl('', Validators.required),
+        password: new FormControl(['', ])
+      });
+
 
 
 

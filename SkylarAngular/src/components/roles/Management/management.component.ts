@@ -116,7 +116,7 @@ export class ManagementComponent implements OnInit {
   createBankAccount() {
     this.baService.createBankAccount({
       saldo: this.saldo,
-      bankName:this.bankName,
+      bankAccountName:this.bankName,
       assignedUserId: this.authService.getUserId()!,
 
     }).subscribe(user => {
@@ -128,7 +128,7 @@ export class ManagementComponent implements OnInit {
   updateBankAccount(id: number) {
     this.baService.updateBankAccount({
       saldo: this.updSaldo,
-      bankName:this.updBankName,
+      bankAccountName:this.updBankName,
       assignedUserId: this.updAssignedUserBA!,
     }, id).subscribe(bankAcc => {
 

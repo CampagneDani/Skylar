@@ -1,16 +1,19 @@
+<app-navbar></app-navbar>
 <body>
+
+
 <section class="vh-100" >
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
         <!-- Start Login Card -->
-        <div class="card" style="border-radius: 1rem;">
+        <div class="card" style="border-radius: 1rem;border-color: beige">
           <div class="row g-0">
 
             <!-- Start Image Div of Skylar on Left side of LoginCard -->
             <div class="col-md-6 col-lg-5 d-none d-md-block">
-              <img src="/assets/img/skylar_login.jpg"
-                   alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;"/>
+              <img src="/assets/img/loginpic.jpg"
+                   alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;border-color: beige"/>
             </div>
             <!-- End Image Div -->
 
@@ -30,7 +33,7 @@
                   <!-- Start Username Input and Validator Call -->
                   <div class="form-outline mb-4">
                     <div class="form-floating">
-                    <input type="username" class="form-control" id="username" formControlName="username">
+                    <input type="username" class="form-control" id="username"  formControlName="username">
                     <label for="username">Username</label>
                     <div *ngIf="loginForm.invalid && usernameControl?.touched && usernameControl.errors">
                       <span *ngIf="usernameControl.errors['required']">Username is required</span>
@@ -42,9 +45,9 @@
                   <!-- Start Password Input and Validator Call -->
                   <div class="form-outline mb-4">
                     <div class="form-floating">
-                    <input type="password" class="form-control" id="password" formControlName="password">
-                    <label for="password">Password</label>
-                    <div *ngIf="loginForm.invalid && passwordControl.touched && passwordControl.errors">
+                    <input type="password" class="form-control" id="Password" formControlName="password">
+                    <label for="Password" class="form-label">Password</label>
+                     <div *ngIf="loginForm.invalid && passwordControl.touched && passwordControl.errors">
                       <span *ngIf="passwordControl.errors['minLength']">At least 8 characters</span>
                     </div>
                     </div>

@@ -11,6 +11,7 @@ import {UserService} from "../services/user.service";
 import {AdminGuardService} from "../guard/admin-guard.service";
 import {FinanceGuardService} from "../guard/finance-guard.service";
 import {ManagementGuardService} from "../guard/management-guard.service";
+import {NavbarComponent} from "../components/navbar/navbar.component";
 
 
 
@@ -29,6 +30,7 @@ import {ManagementGuardService} from "../guard/management-guard.service";
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+
   ],
   providers: [UserService,AdminGuardService,FinanceGuardService,ManagementGuardService],
   bootstrap: [AppComponent]

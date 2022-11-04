@@ -27,7 +27,8 @@ export class AuthenticationService {
   }
   logoutUser(){
     localStorage.clear();
-    return this.router.navigateByUrl("/login"), this.isloggedIn=false
+    this.isloggedIn=false
+    return this.router.navigateByUrl("/login")
   }
   getRole():string|null{
     return localStorage.getItem("role")

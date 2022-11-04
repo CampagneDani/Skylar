@@ -15,5 +15,6 @@ export class ForyoupageComponent {
     const getRole = this.authService.getRole()
 
   }
+  title="OAG ARGE"
 }
 
