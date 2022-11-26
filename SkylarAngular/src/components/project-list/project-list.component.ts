@@ -15,61 +15,58 @@ export class ProjectListComponent implements OnInit {
   constructor(private projectService: ProjectService,) {
 
   }
-
-  // ------------------Project Variables-----------------------------------
+  getUserName(id:number){
+    return this.users.find((user)=>user.id === id)?.username
+  }
+  users:User[]=[]
+  projects:Project[]=[]
+  hidden = [false]
+// ------------------Project Variables-----------------------------------
   // Create Projects
   name = ""
   description = "";
-  assignedBudgetProject: Budget[] = [];
-  assignedUserProject: User[] = [];
-  assignedBookingProject: Booking[] = []
-  project: Project[] = []
+  userP: number | undefined;
+
 
   // Update Project
   updName = ""
   updDescription = "";
-  updAssignedBudgetProject: Budget[] = [];
-  //updAssignedUserProject: number = [];
-  updAssignedBookingProject: Booking[] = []
-  updProject: Project[] = []
+  updUserP: number|undefined
 
-  hidden = [false]
 
   ngOnInit() {
-   // this.getAllProjects()
+    this.getAllProjects()
   }
-  /*
+
+
 //--------------------------Projects------------------------------------
   getAllProjects() {
     this.projectService.getAllProjects().subscribe((dto: Project[]) => {
-      this.project = dto;
+      this.projects = dto;
     })
   }
 
   createProject() {
     this.projectService.createProject({
-      name: this.name,
-      description: this.description,
-      assignedBudget: this.assignedBudgetProject,
-      assignedBooking: this.assignedBookingProject,
-      assignedUser: this.assignedUserProject,
+      projectName: this.name,
+      projectDescription: this.description,
+      assignedUserId: this.userP!,
 
-    }).subscribe(user => {
+    }).subscribe(project => {
       this.getAllProjects()
+      console.log(project)
     })
   }
 
   updateProject(id: number) {
     this.projectService.updateProject({
-      name: this.updName,
-      description: this.updDescription,
-      assignedBudget: this.updAssignedBudgetProject,
-      assignedBooking: this.updAssignedBookingProject,
-      assignedUser: this.updAssignedUserProject,
+      projectName: this.updName,
+      projectDescription: this.updDescription,
+      assignedUserId: this.updUserP!,
     }, id).subscribe(project => {
 
       this.getAllProjects()
-
+      console.log(project)
     })
 
   }
@@ -79,6 +76,6 @@ export class ProjectListComponent implements OnInit {
       this.getAllProjects()
     })
   }
-*/
+
 
 }

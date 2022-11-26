@@ -21,26 +21,30 @@ export class BudgetListComponent implements OnInit {
   hidden = [false]
   truefalse=[true,false]
 
-  budget:Budget[]=[]
+  budgets:Budget[]=[]
   projects:Project[]=[]
   getAllProjects() {
     this.projectService.getAllProjects().subscribe((dto: Project[]) => {
       this.projects = dto;
     })
   }
+  getProjectName(id:number){
+    return this.projects.find((project) => project.id === id)?.projectName  }
   //-------------------Budget Variables--------------------------
   // Create Budgets
   startDate = Date()
   endDate = Date()
-  value = 0
+  valueB = 0
+
   assignedProjectBudget:number|undefined
 
 
   //Update Budgets
   updStartDate = Date()
   updEndDate = Date()
-  updValue = 0
+  updValueB = 0
   updAssignedProjectBudget: number|undefined
+
 
 
   ngOnInit() {
@@ -52,7 +56,7 @@ export class BudgetListComponent implements OnInit {
 
   getAllBudgets() {
     this.budgetService.getAllBudget().subscribe((dto: Budget[]) => {
-      this.budget = dto;
+      this.budgets = dto;
     })
   }
 
@@ -60,7 +64,7 @@ export class BudgetListComponent implements OnInit {
     this.budgetService.createBudget({
       startDate: this.startDate,
       endDate: this.endDate,
-      value: this.value,
+      value: this.valueB,
       assignedProjectId: this.assignedProjectBudget!,
 
     }).subscribe(user => {
@@ -72,7 +76,7 @@ export class BudgetListComponent implements OnInit {
     this.budgetService.updateBudget({
       startDate: this.updStartDate,
       endDate: this.updEndDate,
-      value: this.updValue,
+      value: this.updValueB,
       assignedProjectId:this.updAssignedProjectBudget!
     }, id).subscribe(project => {
 

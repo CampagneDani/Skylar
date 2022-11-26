@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ForYouPage</title>
+</head>
+<body>
+<app-navbar></app-navbar>
+<h1> Bookings <i
+  class="fa-solid fa-book-bookmark"></i></h1>
+<br>
+<div class="bookingTable">
+  <section class="booking">
+
+    <!-- Booking Table-->
+    <div class="financeTable">
+      <table>
+        <tr>
+          <th>Date <i class="fa-solid fa-calendar-day"></i></th>
+          <th>Value <i class="fa-solid fa-arrow-down-1-9"></i></th>
+          <th>Budget <i class="fa-solid fa-book-bookmark"></i></th>
+          <th>Project <i class="fa-solid fa-diagram-project"></i></th>
+          <th>Bank Account <i class="fa-solid fa-vault"></i></th>
+          <th>Buttons <i class="fa-solid fa-play-pause"></i></th>
+
+        </tr>
+
+        <tr *ngFor="let booking of booking">
+          <td>
+
+            <div *ngIf="!this.hidden[booking.id]">{{booking.date|date:"dd.MM.yy  HH:mm"}}</div>
+
+
+            <input *ngIf="this.hidden[booking.id]" type="datetime-local" [(ngModel)]="updDate" placeholder="Date"
+                   style="width: 250px;">
+          </td>
+          <td>
+
+
+            <div *ngIf="!this.hidden[booking.id]">{{booking.value}}</div>
+
+            <input *ngIf="this.hidden[booking.id]" type="number" [(ngModel)]="updValue" placeholder="Value"
+                   style="width: 250px;">
+          </td>
+          <td>
+
+
+            <div *ngIf="!this.hidden[booking.id]"> {{getProjectName(booking.assignedProjectId)}}
+
+
+            </div>
+            <select *ngIf="this.hidden[booking.id]" [(ngModel)]="booking.assignedBudgetId" style="width: 150px">
+              <option *ngFor="let budget of budgets" [value]="budget.id">{{getProjectName(budget.assignedProjectId)}}</option>
+            </select>
+
+
+          </td>
+
+          <td>
+
+
+            <div *ngIf="!this.hidden[booking.id]"> {{getProjectName(booking.assignedProjectId)}}
+
+
+            </div>
+            <select *ngIf="this.hidden[booking.id]" [(ngModel)]="updProjectB" style="width: 150px">
+              <option *ngFor="let project of projects" [value]="project.id">{{project.projectName}}</option>
+            </select>
+          </td>
+          <td>
+
+            <div *ngIf="!this.hidden[booking.id]"> {{getBankAccountName(booking.assignedBankAccountId)}}
+
+
+            </div>
+            <select *ngIf="this.hidden[booking.id]" [(ngModel)]="updBankAccountB" style="width: 150px">
+              <option *ngFor="let bankAccount of bankAccounts"
+                      [value]="bankAccount.id">{{getBankAccountName(booking.assignedBankAccountId)}}</option>
+            </select>
+          </td>
+          <td>
+
+            <button *ngIf="this.hidden[booking.id]" (click)="deleteBookings(booking.id)" class="create" size="small" type="button"
+            >Delete Booking
+            </button>
+            <div></div>
+
+            <button *ngIf="!this.hidden[booking.id]"
+                    (click)="updValue=booking.value;updBudgetB=booking.assignedBudgetId;updUserB=booking.assignedUserId;updProjectB=booking.assignedProjectId;updBankAccountB=booking.assignedBankAccountId;this.hidden[booking.id]= !this.hidden[booking.id]"
+                    class="create" size="small" type="button"
+            > Edit Booking
+            </button>
+
+
+            <button *ngIf="this.hidden[booking.id]"
+                    (click)="updateBooking(booking.id);this.hidden[booking.id]= !this.hidden[booking.id]"
+                    class="create" size="small" type="button"
+            >Submit
+            </button>
+            <button *ngIf="this.hidden[booking.id]" (click)="this.hidden[booking.id]=!this.hidden[booking.id]">Close
+            </button>
+
+          </td>
+
+
+        </tr>
+      </table>
+    </div>
+  </section>
+</div>
+</body>
+</html>

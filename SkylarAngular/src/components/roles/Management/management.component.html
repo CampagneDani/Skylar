@@ -9,8 +9,9 @@
     <table>
       <tr>
 
-        <th>Start Date</th>
-        <th style="padding-left: 48px">Buttons</th>
+        <th>Start Date <i class="fa-solid fa-calendar-day"></i></th>
+
+        <th style="padding-left: 48px">Buttons <i class="fa-solid fa-play-pause"></i></th>
       </tr>
       <tr>
         <th><input type="datetime-local" [(ngModel)]="startDate" placeholder="Start Date" style="width: 250px;"></th>
@@ -21,20 +22,26 @@
       </tr>
 
       <tr>
-        <th>End Date</th>
+
+        <th>End Date <i class="fa-solid fa-calendar-circle-exclamation"></i></th>
+
       </tr>
       <tr>
         <th><input type="datetime-local" [(ngModel)]="endDate" placeholder="End Date" style="width: 250px;"></th>
       </tr>
       <tr>
-        <th>Value</th>
+
+        <th>Value <i class="fa-solid fa-arrow-down-1-9"></i></th>
+
       <tr>
         <th><input type="number" [(ngModel)]="valueB" placeholder="Value" style="width: 250px;"></th>
 
       </tr>
 
       <tr>
-        <th>Project</th>
+
+        <th>Project <i class="fa-solid fa-diagram-project"></i></th>
+
       <tr>
         <th><select [(ngModel)]="assignedProjectBudget" style="width: 150px">
           <option *ngFor="let project of projects" [value]="project.id">{{project.projectName}}</option>
@@ -50,11 +57,11 @@
 
     <table>
       <tr>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Value</th>
-        <th>Project</th>
-        <th>Buttons</th>
+        <th>Start Date <i class="fa-solid fa-calendar-day"></i></th>
+        <th>End Date <i class="fa-solid fa-calendar-circle-exclamation"></i></th>
+        <th>Value <i class="fa-solid fa-arrow-down-1-9"></i></th>
+        <th>Project <i class="fa-solid fa-diagram-project"></i></th>
+        <th>Buttons <i class="fa-solid fa-play-pause"></i></th>
       </tr>
 
       <tr class="genre" *ngFor="let bdg of budgets ">
@@ -80,7 +87,7 @@
           <div *ngIf="!this.hidden[bdg.id]"
                style="width: 250px;margin-top: 5px">{{getProjectName(bdg.assignedProjectId)}}</div>
 
-          <select *ngIf="this.hidden[bdg.id]" [(ngModel)]="bdg.assignedProjectId" style="width: 150px">
+          <select *ngIf="this.hidden[bdg.id]" [(ngModel)]="updAssignedProjectBudget" style="width: 150px">
             <option *ngFor="let project of projects" [value]="project.id">{{project.projectName}}</option>
           </select>
         </td>
@@ -88,12 +95,13 @@
         <td>
 
           <button *ngIf="this.hidden[bdg.id]" (click)="deleteBudget(bdg.id);this.hidden[bdg.id] =!this.hidden[bdg.id]">
-            Delete Budget
+            Delete   Budget
           </button>
+          <div></div>
 
 
           <button *ngIf="!this.hidden[bdg.id]"
-                  (click)="updValue=bdg.value;updAssignedProjectBudget=bdg.assignedProjectId;this.hidden[bdg.id] = !this.hidden[bdg.id]">
+                  (click)="updValue=bdg.value;updUserB=bdg.assignedProjectId;updAssignedProjectBudget=bdg.assignedProjectId;this.hidden[bdg.id] = !this.hidden[bdg.id]">
             Edit Budget
           </button>
 
@@ -119,8 +127,9 @@
     <table>
       <h1> Bank Account Planner</h1>
       <tr>
-        <th>Saldo</th>
-        <th style="padding-left: 48px">Buttons</th>
+        <th>Saldo <i class="fa-solid fa-sack-dollar"></i></th>
+
+        <th style="padding-left: 48px">Buttons <i class="fa-solid fa-play-pause"></i></th>
       </tr>
       <tr>
         <th><input type="number" [(ngModel)]="saldo" placeholder="Saldo" style="width: 250px;"></th>
@@ -132,13 +141,16 @@
       </tr>
 
       <tr>
-        <th>Name</th>
+
+        <th>Name <i class="fa-solid fa-signature"></i></th>
+
       </tr>
       <tr>
         <th><input type="text" [(ngModel)]="bankName" placeholder="Name" style="width: 250px;"></th>
       </tr>
       <tr>
-        <th>User</th>
+        <th>User <i class="fa-solid fa-user"></i></th>
+
       </tr>
       <tr>
         <th><select [(ngModel)]="assignedUserBA" style="width: 150px">
@@ -153,10 +165,10 @@
     <table>
       <h1> Bank Accounts</h1>
       <tr>
-        <th>Saldo</th>
-        <th>Name</th>
-        <th>User</th>
-        <th>Buttons</th>
+        <th>Saldo <i class="fa-solid fa-sack-dollar"></i></th>
+        <th>Name <i class="fa-solid fa-signature"></i></th>
+        <th>User <i class="fa-solid fa-user"></i></th>
+        <th>Buttons <i class="fa-solid fa-play-pause"></i></th>
       </tr>
       <tr *ngFor="let ba of bankAccounts">
 
@@ -193,7 +205,7 @@
 
 
           <button *ngIf="!this.hidden[ba.id]"
-                  (click)="updSaldo=ba.saldo;updAssignedUserBA=ba.assignedUserId;this.hidden[ba.id]= !this.hidden[ba.id]"
+                  (click)="updSaldo=ba.saldo;updBankName=ba.bankAccountName;updAssignedUserBA=ba.assignedUserId;this.hidden[ba.id]= !this.hidden[ba.id]"
                   class="create" size="small" type="button"
           > Edit Bank Account
           </button>
@@ -226,8 +238,11 @@
     <table>
       <h1> Booking Planner</h1>
       <tr>
-        <th>Date</th>
-        <th style="padding-left: 48px">Buttons</th>
+
+        <th>Date <i class="fa-solid fa-calendar-day"></i></th>
+
+
+        <th style="padding-left: 48px">Buttons <i class="fa-solid fa-play-pause"></i></th>
       </tr>
       <tr>
 
@@ -241,13 +256,17 @@
       </tr>
 
       <tr>
-        <th>Value</th>
+
+        <th>Value <i class="fa-solid fa-arrow-down-1-9"></i></th>
+
       </tr>
       <tr>
         <th><input type="number" [(ngModel)]="value" placeholder="Value" style="width: 250px;">
       </tr>
       <tr>
-        <th>Budget</th>
+
+        <th>Budget <i class="fa-solid fa-book-bookmark"></i></th>
+
       <tr>
         <th><select [(ngModel)]="budgetB" style="width: 150px">
           <option *ngFor="let budget of budgets"
@@ -255,14 +274,17 @@
         </select></th>
       </tr>
       <tr>
-        <th>Project</th>
+        <th>Project <i class="fa-solid fa-diagram-project"></i></th>
+
       <tr>
         <th><select [(ngModel)]="projectB" style="width: 150px">
           <option *ngFor="let project of projects" [value]="project.id">{{project.projectName}}</option>
         </select></th>
       </tr>
       <tr>
-        <th>Bank Account</th>
+
+        <th>Bank Account <i class="fa-solid fa-vault"></i></th>
+
       <tr>
         <th><select [(ngModel)]="bankAccountB" style="width: 150px">
           <option *ngFor="let bankAccount of bankAccounts"
@@ -283,12 +305,12 @@
     <table>
       <h1>Bookings</h1>
       <tr>
-        <th>Date</th>
-        <th>Value</th>
-        <th>Budget</th>
-        <th>Project</th>
-        <th>Bank Account</th>
-        <th>butt</th>
+        <th>Date <i class="fa-solid fa-calendar-day"></i></th>
+        <th>Value <i class="fa-solid fa-arrow-down-1-9"></i></th>
+        <th>Budget <i class="fa-solid fa-book-bookmark"></i></th>
+        <th>Project <i class="fa-solid fa-diagram-project"></i></th>
+        <th>Bank Account <i class="fa-solid fa-vault"></i></th>
+        <th>Buttons <i class="fa-solid fa-play-pause"></i></th>
 
       </tr>
 
@@ -316,8 +338,8 @@
 
 
           </div>
-          <select *ngIf="this.hidden[booking.id]" [(ngModel)]="booking.assignedProjectId" style="width: 150px">
-            <option *ngFor="let budget of budgets" [value]="budget.id">{{budget.assignedProjectId}}</option>
+          <select *ngIf="this.hidden[booking.id]" [(ngModel)]="booking.assignedBudgetId" style="width: 150px">
+            <option *ngFor="let budget of budgets" [value]="budget.id">{{getProjectName(budget.assignedProjectId)}}</option>
           </select>
 
 
@@ -347,10 +369,10 @@
         </td>
         <td>
 
-          <button (click)="deleteBookings(booking.id)" class="create" size="small" type="button"
-          >Delete
+          <button *ngIf="this.hidden[booking.id]" (click)="deleteBookings(booking.id)" class="create" size="small" type="button"
+          >Delete Booking
           </button>
-
+          <div></div>
 
           <button *ngIf="!this.hidden[booking.id]"
                   (click)="updValue=booking.value;updBudgetB=booking.assignedBudgetId;updUserB=booking.assignedUserId;updProjectB=booking.assignedProjectId;updBankAccountB=booking.assignedBankAccountId;this.hidden[booking.id]= !this.hidden[booking.id]"
@@ -381,8 +403,9 @@
     <table>
       <h1> Project Planner</h1>
       <tr>
-        <th>Name</th>
-        <th style="padding-left: 48px">Buttons</th>
+        <th>Name <i class="fa-solid fa-signature"></i></th>
+
+        <th style="padding-left: 48px">Buttons <i class="fa-solid fa-play-pause"></i></th>
       </tr>
       <tr>
         <th><input type="name" [(ngModel)]="name" placeholder="Name" style="width: 250px;"></th>
@@ -394,13 +417,15 @@
       </tr>
 
       <tr>
-        <th>Description</th>
+        <th>Description <i class="fa-solid fa-quote-left"></i></th>
+
       </tr>
       <tr>
         <th><input type="text" [(ngModel)]="description" placeholder="Description" style="width: 250px;"></th>
       </tr>
       <tr>
-        <th>User</th>
+
+        <th>User <i class="fa-solid fa-user"></i></th>
       <tr>
         <th><select [(ngModel)]="userP" style="width: 150px">
           <option *ngFor="let user of users" [value]="user.id">{{getUserName(user.id)}}</option>
@@ -421,9 +446,10 @@
     <table>
       <h1> Projects</h1>
       <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>User</th>
+        <th>Name <i class="fa-solid fa-signature"></i></th>
+        <th>Description <i class="fa-solid fa-quote-left"></i></th>
+        <th>User <i class="fa-solid fa-user"></i></th>
+        <th>Buttons <i class="fa-solid fa-play-pause"></i></th>
 
       </tr>
       <tr class="genre" *ngFor="let pj of projects ">
@@ -454,16 +480,15 @@
         <td>
 
           <button *ngIf="this.hidden[pj.id]" (click)="deleteProject(pj.id);this.hidden[pj.id] =!this.hidden[pj.id]">
-            Delete
-            User
+            Delete Project
           </button>
 
 
           <button *ngIf="!this.hidden[pj.id]"
-                  (click)="updName=pj.projectName;updDescription=pj.projectDescription;this.hidden[pj.id] =!this.hidden[pj.id]">
-            Edit
+                  (click)="updName=pj.projectName;updUserP=pj.assignedUserId;updDescription=pj.projectDescription;this.hidden[pj.id] =!this.hidden[pj.id]">
+            Edit Project
           </button>
-
+          <div></div>
 
           <button *ngIf="this.hidden[pj.id]"
                   (click)="updateProject(pj.id);this.hidden[pj.id]= !this.hidden[pj.id]"

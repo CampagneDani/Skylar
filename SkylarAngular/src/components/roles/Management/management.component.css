@@ -5,6 +5,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
 hr{
@@ -34,8 +35,8 @@ section{
   font-size: 12pt;
 }
 th,td{
-  padding-left: 12px;
-
+text-align: center;
+  width: 200px;
 }
 .Budget{
   display: flex;
@@ -44,12 +45,13 @@ th,td{
 
 }
 .Budget td{
-  border: 2px dashed black;
+  border: 2px solid black;
 }
 .bankAccount{
   margin-top: 64px;
   display: flex;
   position: relative;
+
 }
 .bankAccount td{
   border: 2px solid black;
@@ -59,10 +61,16 @@ th,td{
   display: flex;
   position: relative;
 }
+.project td{
+  border: 2px solid black;
+}
 .booking{
   margin-top: 64px;
   display: flex;
   position: relative;
+}
+.booking td{
+  border: 2px solid black;
 }
 input[type=text],[type=name],[type=number],[type=datetime-local]{
   border: none;
@@ -74,6 +82,16 @@ button{
   border: none;
   border-radius: 10px;
   border-bottom: 2.5px solid black;
+
+}
+
+button:hover{
+  color: beige;
+  border: beige 2.5px solid;
+  border-radius: 10px;
+  border: none;
+  border-bottom: 2.5px solid black;
+  background-color: black;
 
 }
 select{

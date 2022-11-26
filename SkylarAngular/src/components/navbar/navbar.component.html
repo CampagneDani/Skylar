@@ -1,4 +1,3 @@
-
 <div class="header2 bg-success-gradiant">
   <div class="">
     <!-- Start Navbar Code -->
@@ -9,105 +8,112 @@
 
         <!-- Start Navbar left side-->
         <ul class="navbar-nav">
-          <li class="nav-item active"><a class="nav-link" href="/home" (click)="authService.logoutUser()"> <i class="far fa-paper-plane"></i> OAG ARGE</a></li>
-          <li class="nav-item active" *ngIf="authService.getRole()==='Admin'" ><a class="nav-link" href="/Admin"><i class="fa-regular fa-house"></i> Home</a></li>
-          <li class="nav-item active" *ngIf="authService.getRole()==='Finance'" ><a class="nav-link" href="/Finance"><i class="fa-regular fa-house"></i> Home</a></li>
-          <li class="nav-item active" *ngIf="authService.getRole()==='Management'" ><a class="nav-link" href="/Management"><i class="fa-regular fa-house"></i> Home</a></li>
+          <li class="nav-item active"><a class="nav-link" style="font-size: 14pt" href="/home"
+                                         (click)="authService.logoutUser()"> <i
+            class="far fa-paper-plane"></i> OAG ARGE</a></li>
+          <li class="nav-item active" *ngIf="authService.getRole()==='Admin'"><a class="nav-link" href="/Admin"
+                                                                                 style="font-size: 14pt"><i
+            class="fa-regular fa-house"></i> Home</a></li>
+          <li class="nav-item active" *ngIf="authService.getRole()==='Finance'"><a class="nav-link" href="/Finance"
+                                                                                   style="font-size: 14pt"><i
+            class="fa-regular fa-house"></i> Home</a></li>
+          <li class="nav-item active" *ngIf="authService.getRole()==='Management'"><a class="nav-link"
+                                                                                      href="/Management"
+                                                                                      style="font-size: 14pt"><i
+            class="fa-regular fa-house"></i> Home</a></li>
 
-          <!-- Start Dropdown User Interaction Admin-->
-          <li class="nav-item dropdown position-relative" *ngIf="authService.getRole()==='Admin'">
-            <a class="nav-link dropdown-toggle" href="/Admin"  id="h22-dropdown" data-toggle="dropdown" aria-haspopup="true"
-               aria-expanded="false">
-              <i class="fa-solid fa-users"></i>
-              User Interaction
-              <i class="fa-solid fa-circle-chevron-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/login">Login</a></li>
-              <li><a class="dropdown-item" href="/registration">Registration</a></li>
-            </ul>
-          </li>
-          <!-- End Dropdown User Interaction-->
-          <!-- Start Dropdown User Interaction Finance-->
-          <li class="nav-item dropdown position-relative" *ngIf="authService.getRole()==='Finance'">
-            <a class="nav-link dropdown-toggle" href="/Admin"  id="h2-dropdown" data-toggle="dropdown" aria-haspopup="true"
-               aria-expanded="false">
-              User Interaction
-              <i class="fa-solid fa-circle-chevron-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/login">Login</a></li>
-              <li><a class="dropdown-item" href="/registration">Registration</a></li>
-            </ul>
-          </li>
-          <!-- End Dropdown User Interaction-->
-          <!-- Start Dropdown User Interaction Management-->
-          <li class="nav-item dropdown position-relative" *ngIf="authService.getRole()==='Management'">
-            <a class="nav-link dropdown-toggle" href="/Management"  id="h21-dropdown" data-toggle="dropdown" aria-haspopup="true"
-               aria-expanded="false">
-              User Interaction
-              <i class="fa-solid fa-circle-chevron-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/login">Login</a></li>
-              <li><a class="dropdown-item" href="/registration">Registration</a></li>
-            </ul>
-          </li>
-          <!-- End Dropdown User Interaction-->
           <!-- Start Dropdown For interaction on roles-->
-          <li class="nav-item dropdown position-relative" *ngIf="authService.getRole()==='Finance'||authService.getRole()==='Management'||authService.getRole()==='Admin'">
-            <a class="nav-link dropdown-toggle" href="/Finance" id="h3-dropdown" data-toggle="dropdown" aria-haspopup="true"
-               aria-expanded="false">
+          <li class="nav-item dropdown position-relative"
+              *ngIf="authService.getRole()==='Admin'">
+            <a class="nav-link dropdown-toggle" href="/Admin" id="h3-dropdown" data-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false" style="font-size: 14pt" >
               <i class="fa-solid fa-people-arrows"></i>
               Role Interaction
               <i class="fa-solid fa-circle-chevron-down"></i>
             </a>
             <ul class="dropdown-menu">
               <li *ngIf="authService.getRole() === 'Admin'" class="nav-item active"><a class="dropdown-item"
-                                                                                       href="/Admin">Admin-Page</a>
+                                                                                       href="/Admin"
+                                                                                       style="font-size: 12pt"><i
+                class="fa-solid fa-screen-users"></i> User Management</a>
               </li>
-              <li *ngIf="authService.getRole() === 'Finance'|| authService.getRole() === 'Admin'"
-                  class="nav-item active"><a class="dropdown-item" href="/Finance">Finance-Page</a></li>
-              <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin'"
-                  class="nav-item active"><a class="dropdown-item" href="/Management">Management-Page</a></li>
-              <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin'"
-                  class="nav-item active"><a class="dropdown-item" href="/budget-list">Budget List</a></li>
+
+
+              <li *ngIf=" authService.getRole() === 'Admin'"
+                  class="nav-item active"><a class="dropdown-item" href="/budget-list" style="font-size: 12pt"><i
+                class="fa-solid fa-wallet"></i> Budgets</a></li>
+              <li *ngIf=" authService.getRole() === 'Admin'"
+                  class="nav-item active"><a class="dropdown-item" href="/bankaccount-list" style="font-size: 12pt"><i
+                class="fa-solid fa-vault"></i>
+                Bank Accounts</a></li>
+              <li *ngIf="authService.getRole() === 'Admin'"
+                  class="nav-item active"><a class="dropdown-item" href="/booking-list" style="font-size: 12pt"><i
+                class="fa-solid fa-book-bookmark"></i> Bookings</a></li>
+              <li *ngIf="authService.getRole() === 'Admin'"
+                  class="nav-item active"><a class="dropdown-item" href="/project-list" style="font-size: 12pt"><i
+                class="fa-solid fa-diagram-project"></i> Projects</a></li>
             </ul>
           </li>
           <!-- End Dropdown For interaction on roles-->
+
+          <li class="nav-item active" *ngIf="authService.getRole()==='Management'">
+            <a class="nav-link" href="/budget-list"><i
+              class="fa-solid fa-wallet"></i> Budgets</a></li>
+          <li class="nav-item active" *ngIf="authService.getRole()==='Management'">
+            <a class="nav-link" href="/bankaccount-list"><i class="fa-solid fa-vault"></i>
+              Bank Accounts</a></li>
+          <li class="nav-item active" *ngIf="authService.getRole()==='Management'">
+            <a class="nav-link" href="/booking-list"><i
+              class="fa-solid fa-book-bookmark"></i> Bookings</a></li>
+          <li class="nav-item active" *ngIf="authService.getRole()==='Management'">
+            <a class="nav-link" href="/project-list"><i
+              class="fa-solid fa-diagram-project"></i> Projects</a></li>
 
         </ul>
         <!-- End Navbar left side-->
 
         <!-- Start Navbar right side-->
-        <ul class="navbar-nav ml-auto" >
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown position-relative">
             <a class="nav-link dropdown-toggle" href="#" id="h4-dropdown" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false">
-              <a *ngIf="authService.getRole() ==='Admin'"  ><i class="fa-solid fa-circle-user fa-3x"></i></a>
-              <a *ngIf="authService.getRole() ==='Finance'"  ><i class="fa-solid fa-user-tie fa-3x"></i></a>
-              <a *ngIf="authService.getRole() ==='Management'"   ><i class="fa-solid fa-user-tie fa-3x"></i></a>
+              <a *ngIf="authService.getRole() ==='Admin'"><i class="fa-solid fa-circle-user fa-3x"></i></a>
+              <a *ngIf="authService.getRole() ==='Finance'"><i class="fa-solid fa-user-tie fa-3x"></i></a>
+              <a *ngIf="authService.getRole() ==='Management'"><i class="fa-solid fa-user-tie fa-3x"></i></a>
             </a>
 
 
             <ul class="dropdown-menu">
+              <li
+                *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin'||authService.getRole() ==='Finance'"
+                class="nav-item active"><a class="dropdown-item" href="/home" style="font-size: 12pt"> <i
+                class="far fa-paper-plane"></i> OAG ARGE</a></li>
               <li *ngIf="authService.getRole() === 'Admin'" class="nav-item active"><a class="dropdown-item"
-                                                                                       href="/Admin">Admin-Page</a>
+                                                                                       style="font-size: 12pt"
+                                                                                       href="/Admin"> <i
+                class="fa-solid fa-circle-user"></i> Home Admin</a>
               </li>
-              <li *ngIf="authService.getRole() === 'Finance'|| authService.getRole() === 'Admin'"
-                  class="nav-item active"><a class="dropdown-item" href="/Finance">Finance-Page</a></li>
+
               <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin'"
-                  class="nav-item active"><a class="dropdown-item" href="/Management">Management-Page</a></li>
-              <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin' || authService.getRole() ==='Finance'"
-                  class="nav-item active"><a class="dropdown-item" href="/login">Change User</a></li>
+                  class="nav-item active"><a class="dropdown-item" href="/Management" style="font-size: 12pt"> <i
+                class="fa-regular fa-house"></i> Home</a></li>
+              <li
+                *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin' || authService.getRole() ==='Finance'"
+                class="nav-item active"><a class="dropdown-item" href="/login" style="font-size: 12pt"> <i class="fa-solid fa-arrows-rotate"></i> Change User</a>
+              </li>
               <hr>
-              <li *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin' || authService.getRole() ==='Finance'"
-                  class="nav-item active"><a class="dropdown-item" href="/login" (click)="authService.logoutUser()">Logout</a></li>
+              <li
+                *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin' || authService.getRole() ==='Finance'"
+                class="nav-item active"><a class="dropdown-item" href="/login" style="font-size: 12pt"
+                                           (click)="authService.logoutUser()"> <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
             </ul>
           </li>
-          <li style="margin-right: 64px" *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin' || authService.getRole() ==='Finance'">
-            <a class="nav-link" style="color: #1d2124;" >User: {{authService.getUsername()}} </a>
-            <p style="margin-left: 4px; color: black">Role: {{authService.getRole()}}</p>
+          <li style="margin-right: 64px"
+              *ngIf="authService.getRole() === 'Management'|| authService.getRole() === 'Admin' || authService.getRole() ==='Finance'">
+            <a class="nav-link" style="color: #1d2124;font-size: 10pt">User: {{authService.getUsername()}} </a>
+            <p style="margin-left: 4px; color: black;font-size: 10pt;padding-bottom: 4px">
+              Role: {{authService.getRole()}}</p>
           </li>
         </ul>
 

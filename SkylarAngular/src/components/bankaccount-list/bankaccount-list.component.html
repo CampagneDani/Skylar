@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ForYouPage</title>
+</head>
+<body>
+<app-navbar></app-navbar>
+<h1> Bank Accounts <i class="fa-solid fa-vault"></i></h1>
+<br>
+<div class="budgetTable">
+<section class="bankAccount">
+  <div class="financeTable">
+    <table>
+      <tr>
+        <th>Saldo <i class="fa-solid fa-sack-dollar"></i></th>
+        <th>Name <i class="fa-solid fa-signature"></i></th>
+        <th>User <i class="fa-solid fa-user"></i></th>
+        <th>Buttons <i class="fa-solid fa-play-pause"></i></th>
+      </tr>
+      <tr *ngFor="let ba of bankAccounts">
+
+        <td>
+
+          <div *ngIf="!this.hidden[ba.id]">{{ba.saldo}}</div>
+
+
+          <input *ngIf="this.hidden[ba.id]" type="number" [(ngModel)]="updSaldo" placeholder="Saldo"
+                 style="width: 250px;">
+
+        </td>
+        <td>
+
+          <div *ngIf="!this.hidden[ba.id]">{{ba.bankAccountName}}</div>
+
+
+          <input *ngIf="this.hidden[ba.id]" type="text" [(ngModel)]="updBankName" placeholder="Name"
+                 style="width: 250px;">
+
+        </td>
+        <td>
+
+          <div *ngIf="!this.hidden[ba.id]"> {{getUserName(ba.assignedUserId)}}
+
+
+          </div>
+          <select *ngIf="this.hidden[ba.id]" [(ngModel)]="updAssignedUserBA" style="width: 150px">
+            <option *ngFor="let user of users"
+                    [value]="user.id">{{getUserName(user.id)}}</option>
+          </select>
+        </td>
+        <td>
+
+
+          <button *ngIf="!this.hidden[ba.id]"
+                  (click)="updSaldo=ba.saldo;updBankName=ba.bankAccountName;updAssignedUserBA=ba.assignedUserId;this.hidden[ba.id]= !this.hidden[ba.id]"
+                  class="create" size="small" type="button"
+          > Edit Bank Account
+          </button>
+
+
+          <button *ngIf="this.hidden[ba.id]"
+                  (click)="deleteBankAccount(ba.id);this.hidden[ba.id]= !this.hidden[ba.id]"
+                  class="create" size="small" type="button"
+          >Delete Bank Account
+          </button>
+          <button *ngIf="this.hidden[ba.id]"
+                  (click)="updateBankAccount(ba.id);this.hidden[ba.id]= !this.hidden[ba.id]"
+                  class="create" size="small" type="button"
+          >Submit
+          </button>
+          <button *ngIf="this.hidden[ba.id]" (click)="this.hidden[ba.id]=!this.hidden[ba.id]">Close</button>
+
+
+        </td>
+
+
+      </tr>
+    </table>
+  </div>
+  </section>
+</div>
+</body>
+</html>

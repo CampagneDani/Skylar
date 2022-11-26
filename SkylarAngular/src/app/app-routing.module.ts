@@ -14,6 +14,8 @@ import {BudgetListComponent} from "../components/budget-list/budget-list.compone
 import {NavbarComponent} from "../components/navbar/navbar.component";
 import {FinanceComponent} from "../components/roles/Finance/finance.component";
 import {ManagementComponent} from "../components/roles/Management/management.component";
+import {BankaccountListComponent} from "../components/bankaccount-list/bankaccount-list.component";
+import {BookingListComponent} from "../components/booking-list/booking-list.component";
 
 const routes: Routes = [
   //Routes can be reached by "/..."
@@ -22,9 +24,12 @@ const routes: Routes = [
   {path: 'login',component:LoginComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path:'Admin',component:AdminComponent,canActivate:[AdminGuardService]},
-  { path:'Finance',component:FinanceComponent, canActivate:[FinanceGuardService]},
+  //{ path:'Finance',component:FinanceComponent, canActivate:[FinanceGuardService]},
   { path:'Management',component:ManagementComponent,canActivate:[ManagementGuardService]},
   { path:'budget-list',component:BudgetListComponent,canActivate:[ManagementGuardService]},
+  {path:'bankaccount-list',component:BankaccountListComponent,canActivate:[ManagementGuardService]},
+  {path:'booking-list',component:BookingListComponent,canActivate:[ManagementGuardService]},
+  {path:'project-list',component:ProjectListComponent,canActivate:[ManagementGuardService]},
 
 ]
 @NgModule({
@@ -33,5 +38,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 // Constant variable for every possible used HTML in Router-Outlet(in app-component)
-export const routingComponents =[BudgetListComponent,NavbarComponent,ProjectListComponent,UserListComponent,ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
+export const routingComponents =[BookingListComponent,BankaccountListComponent,BudgetListComponent,NavbarComponent,ProjectListComponent,UserListComponent,ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
 
