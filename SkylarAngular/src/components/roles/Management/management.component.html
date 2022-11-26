@@ -62,13 +62,13 @@
           <div *ngIf="!this.hidden[bdg.id]"
                style="width: 250px;margin-top: 5px">{{bdg.startDate|date:"dd.MM.yy  HH:mm"}}</div>
 
-          <input *ngIf="this.hidden[bdg.id]" type="text" [(ngModel)]="updStartDate"
+          <input *ngIf="this.hidden[bdg.id]" type="datetime-local" [(ngModel)]="updStartDate"
                  style="width: 250px;margin-top: 5px">
         </td>
         <td>
           <div *ngIf="!this.hidden[bdg.id]"
                style="width: 250px;margin-top: 5px">{{bdg.endDate|date:"dd.MM.yy  HH:mm"}}</div>
-          <input *ngIf="this.hidden[bdg.id]" type="text" [(ngModel)]="updEndDate" style="width: 250px;margin-top: 5px">
+          <input *ngIf="this.hidden[bdg.id]" type="datetime-local" [(ngModel)]="updEndDate" style="width: 250px;margin-top: 5px">
         </td>
         <td>
           <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.value}}</div>
