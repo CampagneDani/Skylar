@@ -6,8 +6,7 @@ export interface Budget {
   startDate:Date,
   endDate:Date,
   value:number,
-  authorized:boolean,
-  assignedProject:Project,
-  assignedBooking:Booking[]
+  assignedProjectId:Project['id'],
+  assignedBookingId:Booking['id']
 
 }

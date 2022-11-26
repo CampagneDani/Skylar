@@ -10,6 +10,7 @@ import {ProjectService} from "../../../services/project.service";
 import {UserService} from "../../../services/user.service";
 import {AuthenticationService} from "../../../services/authentication.service";
 import {BudgetService} from "../../../services/budget.service";
+import {ApexChart, ApexNonAxisChartSeries} from "ng-apexcharts";
 
 @Component({
   selector: 'app-finance',
@@ -17,6 +18,14 @@ import {BudgetService} from "../../../services/budget.service";
   styleUrls: ['./finance.component.css']
 })
 export class FinanceComponent implements OnInit {
+  chartSeries: ApexNonAxisChartSeries=[40,32,28,55]
+
+  chartDetails: ApexChart = {
+    type:'pie',
+    toolbar:{
+      show:true
+    }
+  }
   constructor(private baService: BankAccountService,
               private bookingService: BookingService,
               private projectService: ProjectService,
@@ -39,12 +48,22 @@ export class FinanceComponent implements OnInit {
       this.users = dto;
     })
   }
+  getProjectName(id:number){
+    return this.projects.find((project) => project.id === id)?.projectName
+  }
+  getBankAccountName(id:number){
+    return this.bankAccounts.find((bankaccount)=>bankaccount.id === id)?.bankAccountName
+  }
+  getUserName(id:number){
+    return this.users.find((user)=>user.id === id)?.username
+  }
+
   //-------------------Budget Variables--------------------------
   // Create Budgets
   startDate = Date()
   endDate = Date()
   valueB = 0
-  authorized = false
+
   assignedProjectBudget:number|undefined
 
 
@@ -52,7 +71,6 @@ export class FinanceComponent implements OnInit {
   updStartDate = Date()
   updEndDate = Date()
   updValueB = 0
-  updAuthorized = false
   updAssignedProjectBudget: number|undefined
 
 
@@ -88,13 +106,13 @@ export class FinanceComponent implements OnInit {
   // Create Projects
   name = ""
   description = "";
-  userP: number[] | undefined;
+  userP: number | undefined;
 
 
   // Update Project
   updName = ""
   updDescription = "";
-  updUserP: number[]=[]
+  updUserP: number|undefined
 
   //-------------------Other Variables--------------------------
 
@@ -200,9 +218,9 @@ export class FinanceComponent implements OnInit {
 
   createProject() {
     this.projectService.createProject({
-      name: this.name,
-      description: this.description,
-      assignedUserIds: this.userP!,
+      projectName: this.name,
+      projectDescription: this.description,
+      assignedUserId: this.userP!,
 
     }).subscribe(project => {
       this.getAllProjects()
@@ -212,9 +230,9 @@ export class FinanceComponent implements OnInit {
 
   updateProject(id: number) {
     this.projectService.updateProject({
-      name: this.updName,
-      description: this.updDescription,
-      assignedUserIds: this.updUserP!,
+      projectName: this.updName,
+      projectDescription: this.updDescription,
+      assignedUserId: this.updUserP!,
     }, id).subscribe(project => {
 
       this.getAllProjects()
@@ -242,7 +260,6 @@ export class FinanceComponent implements OnInit {
       startDate: this.startDate,
       endDate: this.endDate,
       value: this.valueB,
-      authorized: this.authorized,
       assignedProjectId: this.assignedProjectBudget!,
 
     }).subscribe(budget => {
@@ -256,7 +273,6 @@ export class FinanceComponent implements OnInit {
       startDate: this.updStartDate,
       endDate: this.updEndDate,
       value: this.updValueB,
-      authorized: this.updAuthorized,
       assignedProjectId:this.updAssignedProjectBudget!
     }, id).subscribe(budget => {
 

@@ -17,7 +17,7 @@ export class ProjectService {
     return this.http.get<Project[]>(this.projectURL);
   }
 
-  createProject(project: {  name: string; description: string; assignedUserIds: User['id'][] }): Observable<Project> {
+  createProject(project: {  projectName: string; projectDescription: string; assignedUserId: User['id'] }): Observable<Project> {
     return this.http.post<Project>(this.projectURL, project);
   }
 
@@ -30,7 +30,7 @@ export class ProjectService {
     return this.http.get<Project[]>(`${this.projectURL}?name=${name}`);
   }
 
-  updateProject(project: {  name: string; description: string; assignedUserIds: User['id'][]; },
+  updateProject(project: {  projectName: string; projectDescription: string; assignedUserId: User['id']; },
                 id: number):Observable<Project>{
     const url = `${this.projectURL}/${id}`
     return this.http.put<Project>(url,project)

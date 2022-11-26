@@ -19,28 +19,25 @@
 
     </td>
     <td>
-      <div  *ngIf="!this.hidden[pj.id]"style="width: 250px;margin-top: 5px">{{pj.name}}</div>
+      <div  *ngIf="!this.hidden[pj.id]"style="width: 250px;margin-top: 5px">{{pj.projectName}}</div>
 
       <input *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updName"style="width: 250px;margin-top: 5px">
     </td>
     <td>
-      <div *ngIf="!this.hidden[pj.id]" style="width: 250px;margin-top: 5px">{{pj.description}}</div>
+      <div *ngIf="!this.hidden[pj.id]" style="width: 250px;margin-top: 5px">{{pj.projectDescription}}</div>
       <input *ngIf="this.hidden[pj.id]"  type="text" [(ngModel)]="updDescription"style="width: 250px;margin-top: 5px">
     </td>
     <td> <div *ngIf="!this.hidden[pj.id]" style="width: 250px;margin-top: 5px">{{pj.assignedBudget}}</div>
       <input *ngIf="this.hidden[pj.id]"  type="text" [(ngModel)]="updAssignedBudgetProject"style="width: 250px;margin-top: 5px">
     </td>
-    <td>
-      <div  *ngIf="!this.hidden[pj.id]"style="width: 250px;margin-top: 5px">{{pj.assignedUser}}</div>
-      <input  *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updAssignedUserProject" style="width: 250px;margin-top: 5px">
-    </td>
+
     <td>
       <div  *ngIf="!this.hidden[pj.id]"style="width: 250px;margin-top: 5px">{{pj.assignedBooking}}</div>
       <input  *ngIf="this.hidden[pj.id]" type="text" [(ngModel)]="updAssignedBookingProject" style="width: 250px;margin-top: 5px">
     </td>
     <td>
       <div style="width: 250px;margin-top: 5px">´</div>
-      <button *ngIf="!this.hidden[pj.id]" (click)="updName=pj.name;updDescription=pj.description;updAssignedBudgetProject=[pj.assignedBudget];updAssignedUserProject=pj.assignedUser;updAssignedBookingProject=pj.assignedBooking;this.hidden[pj.id] =!this.hidden[pj.id]">Edit</button>
+      <button *ngIf="!this.hidden[pj.id]" (click)="updName=pj.projectName;updDescription=pj.projectDescription;updAssignedBudgetProject=[pj.assignedBudget];updAssignedBookingProject=pj.assignedBooking;this.hidden[pj.id] =!this.hidden[pj.id]">Edit</button>
      <!-- <button *ngIf="this.hidden[pj.id]" (click)="updateProject(pj.id);this.hidden[pj.id] =!this.hidden[pj.id]">Submit Change</button>
       <button *ngIf="this.hidden[pj.id]" (click)="deleteProject(pj.id);this.hidden[pj.id] =!this.hidden[pj.id]">Delete User</button> -->
       <button *ngIf="this.hidden[pj.id]" (click)="this.hidden[pj.id]=!this.hidden[pj.id]">Close</button>

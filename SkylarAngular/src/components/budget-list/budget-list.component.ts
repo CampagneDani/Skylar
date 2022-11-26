@@ -33,7 +33,6 @@ export class BudgetListComponent implements OnInit {
   startDate = Date()
   endDate = Date()
   value = 0
-  authorized = false
   assignedProjectBudget:number|undefined
 
 
@@ -41,7 +40,6 @@ export class BudgetListComponent implements OnInit {
   updStartDate = Date()
   updEndDate = Date()
   updValue = 0
-  updAuthorized = false
   updAssignedProjectBudget: number|undefined
 
 
@@ -63,7 +61,6 @@ export class BudgetListComponent implements OnInit {
       startDate: this.startDate,
       endDate: this.endDate,
       value: this.value,
-      authorized: this.authorized,
       assignedProjectId: this.assignedProjectBudget!,
 
     }).subscribe(user => {
@@ -76,7 +73,6 @@ export class BudgetListComponent implements OnInit {
       startDate: this.updStartDate,
       endDate: this.updEndDate,
       value: this.updValue,
-      authorized: this.updAuthorized,
       assignedProjectId:this.updAssignedProjectBudget!
     }, id).subscribe(project => {
 

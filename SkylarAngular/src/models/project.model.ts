@@ -5,10 +5,10 @@ import {Budget} from "./budget.model";
 
 export interface Project{
   id:number
-  name:string
-  description:string
+  projectName:string
+  projectDescription:string
   assignedBudget:Budget
-  assignedUser:User[]
+  assignedUserId:User['id']
   assignedBooking:Booking[]
 
 }

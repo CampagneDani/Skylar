@@ -1,5 +1,46 @@
+body {
+  background-image: url("src/assets/img/backgroundOAGARGE.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 table{
   background-color: lightgray;
   font-size: 12px;
+  opacity: 0.88;
+  height: 100%;
+  width: 100%;
+  border: 2px solid yellow;
+}
 
+th,td{
+  padding-left: 12px;
+  font-size: 12pt;
+  color: #000000;
+}
+.td button{
+  padding-left: 12px;
+}
+
+th,td{
+  border-bottom: 2px dashed black;
+  border-right: 2px solid black;
+  color: black;
+}
+h1{
+  padding-top: 20px;
+  text-align: center;
+color: #F5F5F5;
+}
+p{
+  color: #F5F5F5;
+
+  text-align: center;
+  font-weight: 200;
+  font-size: 14pt;
+}
+.usertable{
+  margin-left: 12.5%;
+  margin-right: 12.5%;
 }

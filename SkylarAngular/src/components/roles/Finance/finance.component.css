@@ -1,18 +1,27 @@
 body {
+
   background-image: url("src/assets/img/backgroundOAGARGE.jpg");
-  height: 100%;
+
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-}
+  background-size: initial;
+  background-attachment: fixed;
+  width: 100%;
 
+}
+html{
+  overflow: auto;
+}
 hr{
   border: solid 5px black;
 
 }
 h1{
-  color: firebrick;
+  color: beige;
 }
 table{
   background-color: lightgray;
+  opacity: 92%;
+  size: 750px;
+
 }

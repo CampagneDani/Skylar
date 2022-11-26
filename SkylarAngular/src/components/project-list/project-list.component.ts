@@ -29,7 +29,7 @@ export class ProjectListComponent implements OnInit {
   updName = ""
   updDescription = "";
   updAssignedBudgetProject: Budget[] = [];
-  updAssignedUserProject: User[] = [];
+  //updAssignedUserProject: number = [];
   updAssignedBookingProject: Booking[] = []
   updProject: Project[] = []
 

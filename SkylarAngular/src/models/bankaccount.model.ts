@@ -6,6 +6,6 @@ export interface BankAccount{
   saldo:number,
   bankAccountName:string
   assignedBookings:Booking[]
-  assignedUser:User
+  assignedUserId:User['id']
 
 }

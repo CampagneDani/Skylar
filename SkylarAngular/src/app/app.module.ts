@@ -12,6 +12,7 @@ import {AdminGuardService} from "../guard/admin-guard.service";
 import {FinanceGuardService} from "../guard/finance-guard.service";
 import {ManagementGuardService} from "../guard/management-guard.service";
 import {NavbarComponent} from "../components/navbar/navbar.component";
+import {NgApexchartsModule} from "ng-apexcharts";
 
 
 
@@ -30,6 +31,7 @@ import {NavbarComponent} from "../components/navbar/navbar.component";
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgApexchartsModule,
 
   ],
   providers: [UserService,AdminGuardService,FinanceGuardService,ManagementGuardService],

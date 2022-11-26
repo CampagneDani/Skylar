@@ -7,9 +7,9 @@ export interface Booking{
   id:number
   date:Date,
   value:number,
-  assignedBudget:Budget,
-  assignedUser:User,
-  assignedProject:Project
-  assignedBankAccount:BankAccount,
+  assignedBudgetId:Budget['id'],
+  assignedUserId:User['id'],
+  assignedProjectId:Project['id']
+  assignedBankAccountId:BankAccount['id'],
 
 }

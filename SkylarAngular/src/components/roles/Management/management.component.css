@@ -1,27 +1,84 @@
+
 body {
-
   background-image: url("src/assets/img/backgroundOAGARGE.jpg");
-
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: initial;
-  background-attachment: fixed;
-  width: 100%;
+  background-size: cover;
+}
 
-}
-html{
-  overflow: auto;
-}
 hr{
   border: solid 5px black;
 
 }
 h1{
-  color: beige;
-}
-table{
-  background-color: lightgray;
-  opacity: 92%;
-  size: 750px;
+  color: whitesmoke;
+  text-align: center;
 
 }
+.financeTable{
+
+  padding: 0 8px;
+
+}
+
+section{
+  width: 100%;
+  display: table;
+  background-color: lightgray;
+  max-height: 400px;
+  overflow: auto;
+  opacity: 0.88;
+  border: 2px solid yellow;
+  height: 100%;
+  font-size: 12pt;
+}
+th,td{
+  padding-left: 12px;
+
+}
+.Budget{
+  display: flex;
+  position: relative;
+
+
+}
+.Budget td{
+  border: 2px dashed black;
+}
+.bankAccount{
+  margin-top: 64px;
+  display: flex;
+  position: relative;
+}
+.bankAccount td{
+  border: 2px solid black;
+}
+.project{
+  margin-top: 64px;
+  display: flex;
+  position: relative;
+}
+.booking{
+  margin-top: 64px;
+  display: flex;
+  position: relative;
+}
+input[type=text],[type=name],[type=number],[type=datetime-local]{
+  border: none;
+  padding:10px;
+  border-radius:10px;
+  border-bottom: 2.5px solid black;
+}
+button{
+  border: none;
+  border-radius: 10px;
+  border-bottom: 2.5px solid black;
+
+}
+select{
+  padding:10px;
+  border-radius:10px;
+  border-bottom: 2.5px solid black;
+}
+

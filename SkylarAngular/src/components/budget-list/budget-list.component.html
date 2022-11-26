@@ -13,7 +13,6 @@
     <th>Start Date</th>
     <th>End Date</th>
     <th>Value</th>
-    <th>Authorized</th>
     <th>Project</th>
     <th></th>
     <th></th>
@@ -25,11 +24,9 @@
     </th>
     <th><input type="number" [(ngModel)]="value" placeholder="Value" style="width: 250px;">
     </th>
-    <th><input type="text" [(ngModel)]="authorized" placeholder="Value" style="width: 250px;">
-    </th>
     <th>
       <select [(ngModel)]="assignedProjectBudget">
-        <option *ngFor="let project of projects" [value]="project.id">{{project.name}}</option>
+        <option *ngFor="let project of projects" [value]="project.id">{{project.projectName}}</option>
       </select>
 
     </th>
@@ -64,22 +61,17 @@
       <input *ngIf="this.hidden[bdg.id]" type="text" [(ngModel)]="updValue"
              style="width: 250px;margin-top: 5px">
     </td>
+
     <td>
-      <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.authorized}}</div>
-      <select *ngIf="this.hidden[bdg.id]" [(ngModel)]="updAuthorized">
-        <option *ngFor="let tf of truefalse" [value]="bdg.id">{{truefalse}}</option>
-      </select>
-    </td>
-    <td>
-      <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.assignedProject}}</div>
+      <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.assignedProjectId}}</div>
       <input *ngIf="this.hidden[bdg.id]" type="text" [(ngModel)]="updAssignedProjectBudget"
              style="width: 250px;margin-top: 5px">
-      <div *ngIf="!this.hidden[bdg.id]"> {{bdg.assignedProject.name}}
+      <div *ngIf="!this.hidden[bdg.id]"> {{bdg.assignedProjectId}}
 
 
       </div>
       <select [(ngModel)]="updAssignedProjectBudget">
-        <option *ngFor="let project of projects" [value]="project.id">{{project.name}}</option>
+        <option *ngFor="let project of projects" [value]="project.id">{{project.projectName}}</option>
       </select>
     </td>
 
@@ -91,7 +83,7 @@
 
 
       <button *ngIf="!this.hidden[bdg.id]"
-              (click)="updValue=bdg.value;updAssignedProjectBudget=bdg.assignedProject.id;this.hidden[bdg.id] =!this.hidden[bdg.id]">
+              (click)="updValue=bdg.value;updAssignedProjectBudget=bdg.assignedProjectId;this.hidden[bdg.id] =!this.hidden[bdg.id]">
         Edit
       </button>
 
