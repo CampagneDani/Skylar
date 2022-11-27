@@ -16,6 +16,7 @@ import {FinanceComponent} from "../components/roles/Finance/finance.component";
 import {ManagementComponent} from "../components/roles/Management/management.component";
 import {BankaccountListComponent} from "../components/bankaccount-list/bankaccount-list.component";
 import {BookingListComponent} from "../components/booking-list/booking-list.component";
+import {FooterComponent} from "../components/footer/footer.component";
 
 const routes: Routes = [
   //Routes can be reached by "/..."
@@ -38,5 +39,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 // Constant variable for every possible used HTML in Router-Outlet(in app-component)
-export const routingComponents =[BookingListComponent,BankaccountListComponent,BudgetListComponent,NavbarComponent,ProjectListComponent,UserListComponent,ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
+export const routingComponents =[FooterComponent,BookingListComponent,BankaccountListComponent,BudgetListComponent,NavbarComponent,ProjectListComponent,UserListComponent,ManagementComponent,FinanceComponent,ForyoupageComponent,LoginComponent,RegistrationComponent,AdminComponent]
 

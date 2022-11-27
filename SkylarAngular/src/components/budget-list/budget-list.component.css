@@ -1,132 +1,35 @@
 body {
-  background-image: url("src/assets/img/backgroundOAGARGE.jpg");
-  height: 100vh;
+  background-color:white;
+  height: 50vw;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
 
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
-.header2 {
-  font-family: "Montserrat", sans-serif;
-  color: #8d97ad;
-  font-weight: 300;
-}
+hr{
+  border: solid 5px black;
 
-.header2.bg-success-gradiant {
-  background: #2cdd9b;
-  background: -webkit-linear-gradient(to right, #2cdd9b 0%, #1dc8cc 100%);
-  background: -webkit-gradient(linear, left top, right top, from(#2cdd9b), to(#1dc8cc));
-  background: -webkit-linear-gradient(left, #2cdd9b 0%, #1dc8cc 100%);
-  background: -o-linear-gradient(left, #2cdd9b 0%, #1dc8cc 100%);
-  background: linear-gradient(to right, #2cdd9b 0%, #1dc8cc 100%);
-}
-
-.header2 .font-12 {
-  font-size: 12px;
-}
-
-.header2 .dropdown-item {
-  padding: 8px 1rem;
-  color: #8d97ad;
-}
-
-.header2 .h2-nav .navbar-nav .nav-item .nav-link {
-  padding: 12px 0px;
-  color: #ffffff;
-  font-weight: 400;
-}
-
-.header2 .h2-nav .navbar-nav .nav-item .nav-link:hover {
-  color: #263238;
-}
-
-.header2 .h2-nav .navbar-nav .nav-item {
-  margin: 0 20px;
-}
-
-@media (min-width: 1024px) {
-  .header2 .navbar-nav > .dropdown .dropdown-menu {
-    min-width: 210px;
-    margin-top: 0px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .header2 .dropdown-submenu:hover > .dropdown-menu {
-    display: block;
-  }
-}
-
-.header2 .dropdown-toggle::after {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .header2 .hover-dropdown .navbar-nav > .dropdown:hover > .dropdown-menu {
-    display: block;
-    margin-top: 0px;
-  }
-}
-
-.header2 .btn-dark {
-  color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
-}
-
-.header2 .btn-dark:hover {
-  color: #fff;
-  background-color: #23272b;
-  border-color: #1d2124;
-}
-
-.header2 .h2-nav .navbar-nav .nav-item .btn {
-  opacity: 0.5;
-}
-
-.header2 .h2-nav .navbar-nav .nav-item .btn:hover {
-  opacity: 1;
-}
-
-.header2 .dropdown-submenu > .dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-left: 0;
-  border-radius: 0.25rem;
-  display: none;
 }
 h1{
-  padding-top: 20px;
+  color: black;
   text-align: center;
-  color: #F5F5F5;
-  font-weight: 800;
+
+}
+.financeTable{
+
+  padding: 0 8px;
 
 }
 
 section{
   width: 100%;
   display: table;
-  background-color: lightgray;
   max-height: 400px;
   overflow: auto;
   opacity: 0.88;
-  border: 2px solid yellow;
   height: 100%;
   font-size: 12pt;
-  ;
 }
 th,td{
   text-align: center;
@@ -136,20 +39,40 @@ th,td{
   display: flex;
   position: relative;
 
-
 }
+
 .Budget td{
   border: 2px solid black;
 }
-.budgetTable{
-  margin-left: 12.5%;
-  margin-right: 12.5%;
+.bankAccount{
+  display: flex;
+  position: relative;
+
+}
+.bankAccount td{
+  border: 2px solid black;
+}
+.project{
+  display: flex;
+  position: relative;
+}
+.project td{
+  border: 2px solid black;
+}
+.booking{
+  display: flex;
+  position: relative;
+}
+.booking td{
+  border: 2px solid black;
 }
 input[type=text],[type=name],[type=number],[type=datetime-local]{
   border: none;
   padding:10px;
   border-radius:10px;
   border-bottom: 2.5px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 button{
   border: none;
@@ -160,23 +83,26 @@ button{
 
 button:hover{
   color: beige;
-  border: beige 2.5px solid;
-  border-radius: 10px;
-  border: none;
-  border-bottom: 2.5px solid black;
   background-color: black;
 
-}
-table{
-  margin-left: 120px;
-}
-.financeTable{
-  padding-top: 20px;
-  padding-bottom: 20px;
 }
 select{
   padding:10px;
   border-radius:10px;
   border-bottom: 2.5px solid black;
+}
+.card{
+  margin-top: 64px;
+  margin-inline: 150px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+h5{
   text-align: center;
+  font-size: 18pt;
+  font-weight: 400
+}
+table{
+  height: 150px;
+
 }

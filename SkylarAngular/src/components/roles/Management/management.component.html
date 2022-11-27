@@ -7,7 +7,7 @@
   <div class="card-body">
     <h5 class="card-title">Budget Planner</h5>
 
-    <section class="Budget" >
+    <section class="Budget">
       <div class="financeTable" style="padding-left: 30px;position: sticky;top: 0">
         <table>
           <tr>
@@ -17,7 +17,8 @@
             <th style="padding-left: 48px">Buttons <i class="fa-solid fa-play-pause"></i></th>
           </tr>
           <tr>
-            <th><input type="datetime-local" [(ngModel)]="startDate" placeholder="Start Date" style="width: 250px;"></th>
+            <th><input type="datetime-local" [(ngModel)]="startDate" placeholder="Start Date" style="width: 250px;">
+            </th>
             <th style="padding-left: 24px;">
               <button (click)="createBudget()" class="create" type="button">Create an Budget
               </button>
@@ -78,7 +79,8 @@
             <td>
               <div *ngIf="!this.hidden[bdg.id]"
                    style="width: 250px;margin-top: 5px">{{bdg.endDate|date:"dd.MM.yy  HH:mm"}}</div>
-              <input *ngIf="this.hidden[bdg.id]" type="datetime-local" [(ngModel)]="updEndDate" style="width: 250px;margin-top: 5px">
+              <input *ngIf="this.hidden[bdg.id]" type="datetime-local" [(ngModel)]="updEndDate"
+                     style="width: 250px;margin-top: 5px">
             </td>
             <td>
               <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.value}} €</div>
@@ -97,8 +99,9 @@
 
             <td>
 
-              <button *ngIf="this.hidden[bdg.id]" (click)="deleteBudget(bdg.id);this.hidden[bdg.id] =!this.hidden[bdg.id]">
-                Delete   Budget
+              <button *ngIf="this.hidden[bdg.id]"
+                      (click)="deleteBudget(bdg.id);this.hidden[bdg.id] =!this.hidden[bdg.id]">
+                Delete Budget
               </button>
               <div></div>
 
@@ -123,12 +126,13 @@
         </table>
       </div>
 
-    </section>  </div>
+    </section>
+  </div>
 </div>
 
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title" >Bank Accounts</h5>
+    <h5 class="card-title">Bank Accounts</h5>
 
     <section class="bankAccount">
 
@@ -244,7 +248,7 @@
   <div class="card-body">
     <h5 class="card-title">Booking Planner</h5>
 
-    <section class="booking" >
+    <section class="booking">
       <div class="financeTable" style="padding-left: 30px;position: sticky;top: 0">
         <table>
           <tr>
@@ -271,7 +275,7 @@
 
           </tr>
           <tr>
-            <th><input type="number" min="0"[(ngModel)]="value" placeholder="Value" style="width: 250px;">
+            <th><input type="number" min="0" [(ngModel)]="value" placeholder="Value" style="width: 250px;">
           </tr>
           <tr>
 
@@ -347,7 +351,8 @@
 
               </div>
               <select *ngIf="this.hidden[booking.id]" [(ngModel)]="booking.assignedBudgetId" style="width: 150px">
-                <option *ngFor="let budget of budgets" [value]="budget.id">{{getProjectName(budget.assignedProjectId)}}</option>
+                <option *ngFor="let budget of budgets"
+                        [value]="budget.id">{{getProjectName(budget.assignedProjectId)}}</option>
               </select>
 
 
@@ -372,12 +377,13 @@
               </div>
               <select *ngIf="this.hidden[booking.id]" [(ngModel)]="updBankAccountB" style="width: 150px">
                 <option *ngFor="let bankAccount of bankAccounts"
-                        [value]="bankAccount.id">{{getBankAccountName(booking.assignedBankAccountId)}}</option>
+                        [value]="bankAccount.id">{{bankAccount.bankAccountName}}</option>
               </select>
             </td>
             <td>
 
-              <button *ngIf="this.hidden[booking.id]" (click)="deleteBookings(booking.id)" class="create" size="small" type="button"
+              <button *ngIf="this.hidden[booking.id]" (click)="deleteBookings(booking.id)" class="create" size="small"
+                      type="button"
               >Delete Booking
               </button>
               <div></div>
@@ -413,7 +419,7 @@
     <h5 class="card-title">Project Planner</h5>
 
 
-    <section class="project" >
+    <section class="project">
 
 
       <div class="financeTable" style="padding-left: 30px;position: sticky;top: 0">
@@ -518,12 +524,10 @@
       </div>
 
 
-
     </section>
   </div>
 </div>
- <!--
-<apx-chart [series]="chartSeries" [chart]="chartDetails"></apx-chart>
-    https://www.youtube.com/watch?v=EAiYGe8ivFo     -->
+
 </body>
+<app-footer></app-footer>
 </html>

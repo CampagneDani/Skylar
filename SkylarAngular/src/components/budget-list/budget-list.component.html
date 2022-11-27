@@ -6,81 +6,88 @@
 </head>
 <body>
 <app-navbar></app-navbar>
-<h1>Budget List <i
+<h1 style="padding-top: 30px">Budget List <i
   class="fa-regular fa-wallet"></i></h1>
 <br>
-<div class="budgetTable">
-<section class="Budget">
-  <!-- Budget Table-->
-  <div class="financeTable">
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title" style="padding-bottom: 30px">Budget Planner</h5>
+
+    <section class="Budget" style="margin-inline: 400px">
+      <!-- Budget Table-->
+      <div class="financeTable" >
 
 
-    <table>
-      <tr>
-        <th>Start Date <i class="fa-solid fa-calendar-day"></i></th>
-        <th>End Date <i class="fa-solid fa-calendar-circle-exclamation"></i></th>
-        <th>Budget Value <i class="fa-solid fa-money-bill-trend-up"></i></th>
-        <th>Project <i class="fa-solid fa-diagram-project"></i></th>
-        <th>Buttons <i class="fa-solid fa-play-pause"></i></th>
-      </tr>
+        <table>
+          <tr>
+            <th>Start Date <i class="fa-solid fa-calendar-day"></i></th>
+            <th>End Date <i class="fa-solid fa-calendar-circle-exclamation"></i></th>
+            <th>Budget <i class="fa-solid fa-money-bill-trend-up"></i></th>
+            <th>Project <i class="fa-solid fa-diagram-project"></i></th>
+            <th>Buttons <i class="fa-solid fa-play-pause"></i></th>
+          </tr>
 
-      <tr class="genre" *ngFor="let bdg of budgets ">
-        <td>
-          <div *ngIf="!this.hidden[bdg.id]"
-               style="width: 250px;margin-top: 5px">{{bdg.startDate|date:"dd.MM.yy  HH:mm"}}</div>
+          <tr class="genre" *ngFor="let bdg of budgets ">
+            <td>
+              <div *ngIf="!this.hidden[bdg.id]"
+                   style="width: 250px;margin-top: 5px">{{bdg.startDate|date:"dd.MM.yy  HH:mm"}}</div>
 
-          <input *ngIf="this.hidden[bdg.id]" type="datetime-local" [(ngModel)]="updStartDate"
-                 style="width: 250px;margin-top: 5px">
-        </td>
-        <td>
-          <div *ngIf="!this.hidden[bdg.id]"
-               style="width: 250px;margin-top: 5px">{{bdg.endDate|date:"dd.MM.yy  HH:mm"}}</div>
-          <input *ngIf="this.hidden[bdg.id]" type="datetime-local" [(ngModel)]="updEndDate" style="width: 250px;margin-top: 5px">
-        </td>
-        <td>
-          <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.value}}</div>
-          <input *ngIf="this.hidden[bdg.id]" type="number" min="0" [(ngModel)]="updValueB"
-                 style="width: 250px;margin-top: 5px">
-        </td>
+              <input *ngIf="this.hidden[bdg.id]" type="datetime-local" [(ngModel)]="updStartDate"
+                     style="width: 250px;margin-top: 5px">
+            </td>
+            <td>
+              <div *ngIf="!this.hidden[bdg.id]"
+                   style="width: 250px;margin-top: 5px">{{bdg.endDate|date:"dd.MM.yy  HH:mm"}}</div>
+              <input *ngIf="this.hidden[bdg.id]" type="datetime-local" [(ngModel)]="updEndDate"
+                     style="width: 250px;margin-top: 5px">
+            </td>
+            <td>
+              <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.value}} €</div>
+              <input *ngIf="this.hidden[bdg.id]" type="number" min="0" [(ngModel)]="updValueB"
+                     style="width: 250px;margin-top: 5px">
+            </td>
 
-        <td>
-          <div *ngIf="!this.hidden[bdg.id]"
-               style="width: 250px;margin-top: 5px">{{getProjectName(bdg.assignedProjectId)}}</div>
+            <td>
+              <div *ngIf="!this.hidden[bdg.id]"
+                   style="width: 250px;margin-top: 5px">{{getProjectName(bdg.assignedProjectId)}}</div>
 
-          <select *ngIf="this.hidden[bdg.id]" [(ngModel)]="updAssignedProjectBudget" style="width: 150px">
-            <option *ngFor="let project of projects" [value]="project.id">{{project.projectName}}</option>
-          </select>
-        </td>
+              <select *ngIf="this.hidden[bdg.id]" [(ngModel)]="updAssignedProjectBudget" style="width: 150px">
+                <option *ngFor="let project of projects" [value]="project.id">{{project.projectName}}</option>
+              </select>
+            </td>
 
-        <td>
+            <td>
 
-          <button *ngIf="this.hidden[bdg.id]" (click)="deleteBudget(bdg.id);this.hidden[bdg.id] =!this.hidden[bdg.id]">
-            Delete   Budget
-          </button>
-          <div></div>
-
-
-          <button *ngIf="!this.hidden[bdg.id]"
-                  (click)="updValueB=bdg.value;updAssignedProjectBudget=bdg.assignedProjectId;this.hidden[bdg.id] = !this.hidden[bdg.id]">
-            Edit Budget
-          </button>
+              <button *ngIf="this.hidden[bdg.id]"
+                      (click)="deleteBudget(bdg.id);this.hidden[bdg.id] =!this.hidden[bdg.id]">
+                Delete Budget
+              </button>
+              <div></div>
 
 
-          <button *ngIf="this.hidden[bdg.id]"
-                  (click)="updateBudget(bdg.id);this.hidden[bdg.id]= !this.hidden[bdg.id]"
-                  class="create" size="small" type="button">
-            Submit
-          </button>
-          <button *ngIf="this.hidden[bdg.id]" (click)="this.hidden[bdg.id]=!this.hidden[bdg.id]">Close</button>
-
-        </td>
+              <button *ngIf="!this.hidden[bdg.id]"
+                      (click)="updValueB=bdg.value;updAssignedProjectBudget=bdg.assignedProjectId;updAssignedProjectBudget=bdg.assignedProjectId;updStartDate=bdg.startDate.toString();updEndDate=bdg.endDate.toString();this.hidden[bdg.id] = !this.hidden[bdg.id]">
+                Edit Budget
+              </button>
 
 
-      </tr>
-    </table>
+              <button *ngIf="this.hidden[bdg.id]"
+                      (click)="updateBudget(bdg.id);this.hidden[bdg.id]= !this.hidden[bdg.id]"
+                      class="create" size="small" type="button">
+                Submit
+              </button>
+              <button *ngIf="this.hidden[bdg.id]" (click)="this.hidden[bdg.id]=!this.hidden[bdg.id]">Close</button>
 
+            </td>
+
+
+          </tr>
+        </table>
+      </div>
+
+    </section>
   </div>
-</section>
 </div>
 </body>
+<app-footer></app-footer>
 </html>
