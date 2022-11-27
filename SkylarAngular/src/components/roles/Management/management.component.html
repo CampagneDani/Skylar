@@ -8,7 +8,7 @@
     <h5 class="card-title">Budget Planner</h5>
 
     <section class="Budget" >
-      <div class="financeTable" style="padding-left: 50px;position: sticky;top: 0">
+      <div class="financeTable" style="padding-left: 30px;position: sticky;top: 0">
         <table>
           <tr>
 
@@ -55,7 +55,7 @@
         </table>
       </div>
       <!-- Budget Table-->
-      <div class="financeTable" style="padding-left: 150px">
+      <div class="financeTable" style="padding-left:30px">
 
 
         <table>
@@ -132,7 +132,43 @@
 
     <section class="bankAccount">
 
-      <div class="financeTable" style="padding-left: 660px">
+      <div class="financeTable" style="padding-left: 30px;position: sticky;top: 0">
+        <table>
+          <tr>
+            <th>Saldo <i class="fa-solid fa-sack-dollar"></i></th>
+
+            <th style="padding-left: 48px">Buttons <i class="fa-solid fa-play-pause"></i></th>
+          </tr>
+          <tr>
+            <th><input type="number" min="0" [(ngModel)]="saldo" placeholder="Saldo" style="width: 250px;"></th>
+            <th style="padding-left: 48px;padding-top: 12px">
+              <button (click)="createBankAccount()" style="" class="create" size="regular" type="button"
+              >Create an Bank Account
+              </button>
+            </th>
+          </tr>
+
+          <tr>
+
+            <th>Name <i class="fa-solid fa-signature"></i></th>
+
+          </tr>
+          <tr>
+            <th><input type="text" [(ngModel)]="bankName" placeholder="Name" style="width: 250px;"></th>
+          </tr>
+          <tr>
+            <th>User <i class="fa-solid fa-user"></i></th>
+
+          </tr>
+          <tr>
+            <th><select [(ngModel)]="assignedUserBA" style="width: 150px">
+              <option *ngFor="let user of users" [value]="user.id">{{getUserName(user.id)}}</option>
+            </select></th>
+          </tr>
+
+        </table>
+      </div>
+      <div class="financeTable" style="padding-left: 30px">
         <table>
           <tr>
             <th>Saldo <i class="fa-solid fa-sack-dollar"></i></th>
@@ -200,42 +236,6 @@
           </tr>
         </table>
       </div>
-      <div class="financeTable" style="padding-left: 100px;position: sticky;top: 0">
-        <table>
-          <tr>
-            <th>Saldo <i class="fa-solid fa-sack-dollar"></i></th>
-
-            <th style="padding-left: 48px">Buttons <i class="fa-solid fa-play-pause"></i></th>
-          </tr>
-          <tr>
-            <th><input type="number" min="0" [(ngModel)]="saldo" placeholder="Saldo" style="width: 250px;"></th>
-            <th style="padding-left: 48px;padding-top: 12px">
-              <button (click)="createBankAccount()" style="" class="create" size="regular" type="button"
-              >Create an Bank Account
-              </button>
-            </th>
-          </tr>
-
-          <tr>
-
-            <th>Name <i class="fa-solid fa-signature"></i></th>
-
-          </tr>
-          <tr>
-            <th><input type="text" [(ngModel)]="bankName" placeholder="Name" style="width: 250px;"></th>
-          </tr>
-          <tr>
-            <th>User <i class="fa-solid fa-user"></i></th>
-
-          </tr>
-          <tr>
-            <th><select [(ngModel)]="assignedUserBA" style="width: 150px">
-              <option *ngFor="let user of users" [value]="user.id">{{getUserName(user.id)}}</option>
-            </select></th>
-          </tr>
-
-        </table>
-      </div>
     </section>
   </div>
 </div>
@@ -245,7 +245,7 @@
     <h5 class="card-title">Booking Planner</h5>
 
     <section class="booking" >
-      <div class="financeTable" style="padding-left: 50px;position: sticky;top: 0">
+      <div class="financeTable" style="padding-left: 30px;position: sticky;top: 0">
         <table>
           <tr>
 
@@ -311,7 +311,7 @@
         </table>
       </div>
       <!-- Booking Table-->
-      <div class="financeTable" style="padding-left: 150px">
+      <div class="financeTable" style="padding-left: 80px">
         <table>
           <tr>
             <th>Date <i class="fa-solid fa-calendar-day"></i></th>
@@ -415,7 +415,49 @@
 
     <section class="project" >
 
-      <div class="financeTable" style="padding-left: 660px">
+
+      <div class="financeTable" style="padding-left: 30px;position: sticky;top: 0">
+        <table>
+          <tr>
+            <th>Name <i class="fa-solid fa-signature"></i></th>
+
+            <th style="padding-left: 48px">Buttons <i class="fa-solid fa-play-pause"></i></th>
+          </tr>
+          <tr>
+            <th><input type="name" [(ngModel)]="name" placeholder="Name" style="width: 250px;"></th>
+            <th style="padding-left: 48px">
+              <button (click)="createProject()" class="create" size="regular" type="button"
+              >Create a Project
+              </button>
+            </th>
+          </tr>
+
+          <tr>
+            <th>Description <i class="fa-solid fa-quote-left"></i></th>
+
+          </tr>
+          <tr>
+            <th><input type="text" [(ngModel)]="description" placeholder="Description" style="width: 250px;"></th>
+          </tr>
+          <tr>
+
+            <th>User <i class="fa-solid fa-user"></i></th>
+          <tr>
+            <th><select [(ngModel)]="userP" style="width: 150px">
+              <option *ngFor="let user of users" [value]="user.id">{{getUserName(user.id)}}</option>
+            </select></th>
+          </tr>
+
+          <tr>
+            <th></th>
+          </tr>
+          <tr>
+            <th></th>
+          </tr>
+
+        </table>
+      </div>
+      <div class="financeTable" style="padding-left: 30px">
         <table>
           <tr>
             <th>Name <i class="fa-solid fa-signature"></i></th>
@@ -475,47 +517,7 @@
         </table>
       </div>
 
-      <div class="financeTable" style="padding-left: 100px;position: sticky;top: 0">
-        <table>
-          <tr>
-            <th>Name <i class="fa-solid fa-signature"></i></th>
 
-            <th style="padding-left: 48px">Buttons <i class="fa-solid fa-play-pause"></i></th>
-          </tr>
-          <tr>
-            <th><input type="name" [(ngModel)]="name" placeholder="Name" style="width: 250px;"></th>
-            <th style="padding-left: 48px">
-              <button (click)="createProject()" class="create" size="regular" type="button"
-              >Create a Project
-              </button>
-            </th>
-          </tr>
-
-          <tr>
-            <th>Description <i class="fa-solid fa-quote-left"></i></th>
-
-          </tr>
-          <tr>
-            <th><input type="text" [(ngModel)]="description" placeholder="Description" style="width: 250px;"></th>
-          </tr>
-          <tr>
-
-            <th>User <i class="fa-solid fa-user"></i></th>
-          <tr>
-            <th><select [(ngModel)]="userP" style="width: 150px">
-              <option *ngFor="let user of users" [value]="user.id">{{getUserName(user.id)}}</option>
-            </select></th>
-          </tr>
-
-          <tr>
-            <th></th>
-          </tr>
-          <tr>
-            <th></th>
-          </tr>
-
-        </table>
-      </div>
 
     </section>
   </div>
