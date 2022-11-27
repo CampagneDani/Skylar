@@ -3,6 +3,9 @@ import {UserService} from "../../services/user.service";
 import {User} from "../../models/user.model";
 import {AuthenticationService} from "../../services/authentication.service";
 
+class Roles {
+}
+
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -20,7 +23,8 @@ export class UserListComponent implements OnInit {
   updRole = ""
   user: User[] = []
   hidden = [false]
-
+  Admin="Admin"
+  Management="Management"
   ngOnInit() {
     this.getAllUser()
   }

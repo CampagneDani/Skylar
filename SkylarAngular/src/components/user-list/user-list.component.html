@@ -1,48 +1,72 @@
 
 <body>
-<h1><i class="fa-solid fa-screen-users"></i> User Role/Permission List</h1>
+<h1 style="padding-top: 30px"><i class="fa-solid fa-screen-users"></i> User Role/Permission List</h1>
 <p> You can Change variables by Clicking on Edit. Input fields will appear and you can either submit your new data or you can delete the user!
 </p>
-<p>It´s mainly for the use of assigning roles for new users!</p>
-<div class="usertable">
-<table>
-  <tr>
-    <th>Id <i class="fa-solid fa-arrow-down-1-9"></i></th>
-    <th>User <i class="fa-solid fa-user"></i></th>
-    <th>Email <i class="fa-regular fa-at"></i></th>
-    <th>Role <i class="fa-solid fa-people-arrows"></i></th>
-    <th></th>
-  </tr>
-  <tr class="genre" *ngFor="let use of user ">
-    <td>
-      <div>{{use.id}}</div>
-
-    </td>
-    <td>
-      <div  *ngIf="!this.hidden[use.id]"style="width: 250px">{{use.username}}</div>
-
-      <input *ngIf="this.hidden[use.id]" type="text" [(ngModel)]="updUsername"style="width: 250px;">
-    </td>
-
-    <td> <div *ngIf="!this.hidden[use.id]" style="width: 250px;">{{use.email}}</div>
-      <input *ngIf="this.hidden[use.id]"  type="text" [(ngModel)]="updEmail"style="width: 250px;">
-    </td>
-    <td>
-      <div *ngIf="!this.hidden[use.id]" style="width: 250px;">{{use.role}}</div>
-      <input  *ngIf="this.hidden[use.id]" type="text" [(ngModel)]="updRole" style="width: 250px;">
-    </td>
-    <td>
-
-      <button *ngIf="!this.hidden[use.id]" (click)="updUsername=use.username;updPassword=use.password;updEmail=use.email;updRole=use.role;this.hidden[use.id] =!this.hidden[use.id]">Edit</button>
-      <button *ngIf="this.hidden[use.id]" (click)="updateRole(use.id);this.hidden[use.id] =!this.hidden[use.id]">Submit Change</button>
-      <button *ngIf="this.hidden[use.id]" (click)="deleteUser(use.id);this.hidden[use.id] =!this.hidden[use.id]">Delete User</button>
-      <button *ngIf="this.hidden[use.id]" (click)="this.hidden[use.id]=!this.hidden[use.id]">Close</button>
-    </td>
+<p >It´s mainly for the use of assigning roles for new users!</p>
 
 
-  </tr>
-</table>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title" style="padding-bottom: 30px">User List</h5>
+      <section  style="justify-content: center;padding-left: 50px">
+        <div class="usertable">
+      <table>
+        <tr>
+          <th>Id <i class="fa-solid fa-arrow-down-1-9"></i></th>
+          <th>User <i class="fa-solid fa-user"></i></th>
+          <th>Email <i class="fa-regular fa-at"></i></th>
+          <th>Role <i class="fa-solid fa-people-arrows"></i></th>
+          <th>Buttons</th>
+        </tr>
+        <tr class="genre" *ngFor="let use of user ">
+          <td>
+            <div>{{use.id}}</div>
 
-</div>
+          </td>
+          <td>
+            <div  *ngIf="!this.hidden[use.id]"style="width: 250px">{{use.username}}</div>
+
+            <input *ngIf="this.hidden[use.id]" type="text" [(ngModel)]="updUsername"style="width: 250px;">
+          </td>
+
+          <td> <div *ngIf="!this.hidden[use.id]" style="width: 250px;">{{use.email}}</div>
+            <input *ngIf="this.hidden[use.id]"  type="text" [(ngModel)]="updEmail"style="width: 250px;">
+          </td>
+
+          <td>
+
+            <div *ngIf="!this.hidden[use.id]"> {{use.role}}
+
+
+            </div>
+            <select *ngIf="this.hidden[use.id]" [(ngModel)]="updRole" style="width: 150px">
+              <option [value]="Admin">{{Admin}}</option>
+              <option [value]="Management">{{Management}}</option>
+
+            </select>
+          </td>
+          <td>
+
+            <button *ngIf="!this.hidden[use.id]" (click)="updUsername=use.username;updPassword=use.password;updEmail=use.email;updRole=use.role;this.hidden[use.id] =!this.hidden[use.id]">Edit</button>
+            <button *ngIf="this.hidden[use.id]" (click)="updateRole(use.id);this.hidden[use.id] =!this.hidden[use.id]">Submit Change</button>
+            <button *ngIf="this.hidden[use.id]" (click)="deleteUser(use.id);this.hidden[use.id] =!this.hidden[use.id]">Delete User</button>
+            <button *ngIf="this.hidden[use.id]" (click)="this.hidden[use.id]=!this.hidden[use.id]">Close</button>
+          </td>
+
+
+        </tr>
+      </table>
+
+
+    </div>
+    </section>
+  </div>
+
+  </div>
+
+
+
 </body>
-<app-footer></app-footer>
+
+

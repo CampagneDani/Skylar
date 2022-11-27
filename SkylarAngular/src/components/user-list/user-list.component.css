@@ -1,46 +1,113 @@
 body {
   background-color:white;
-  height: 100%;
+  height: 50vw;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-table{
-  background-color: lightgray;
-  font-size: 12px;
-  opacity: 0.88;
-  height: 100%;
-  width: 100%;
-  border: 2px solid yellow;
+
 }
 
-th,td{
-  padding-left: 12px;
-  font-size: 12pt;
-  color: #000000;
-}
-.td button{
-  padding-left: 12px;
-}
+hr{
+  border: solid 5px black;
 
-th,td{
-  border-bottom: 2px dashed black;
-  border-right: 2px solid black;
-  color: black;
 }
 h1{
-  padding-top: 20px;
+  color: black;
   text-align: center;
-color: #F5F5F5;
-}
-p{
-  color: #F5F5F5;
 
-  text-align: center;
-  font-weight: 200;
-  font-size: 14pt;
 }
-.usertable{
-  margin-left: 12.5%;
-  margin-right: 12.5%;
+.financeTable{
+
+  padding: 0 8px;
+
+}
+
+section{
+  width: 100%;
+  display: table;
+  max-height: 400px;
+  overflow: auto;
+  opacity: 0.88;
+  height: 100%;
+  font-size: 12pt;
+}
+th,td{
+  text-align: center;
+  width: 200px;
+}
+.Budget{
+  display: flex;
+  position: relative;
+
+}
+
+section td, th{
+  border: 2px solid black;
+}
+.bankAccount{
+  display: flex;
+  position: relative;
+
+}
+.bankAccount td{
+  border: 2px solid black;
+}
+.project{
+  display: flex;
+  position: relative;
+}
+.project td{
+  border: 2px solid black;
+}
+.booking{
+  display: flex;
+  position: relative;
+}
+.booking td{
+  border: 2px solid black;
+}
+input[type=text],[type=name],[type=number],[type=datetime-local]{
+  border: none;
+  padding:10px;
+  border-radius:10px;
+  border-bottom: 2.5px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+button{
+  border: none;
+  border-radius: 10px;
+  border-bottom: 2.5px solid black;
+
+}
+
+button:hover{
+  color: beige;
+  background-color: black;
+
+}
+select{
+  padding:10px;
+  border-radius:10px;
+  border-bottom: 2.5px solid black;
+}
+.card{
+  margin-top: 64px;
+  margin-inline: 150px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+h5{
+  text-align: center;
+  font-size: 18pt;
+  font-weight: 400
+}
+table{
+  height: 150px;
+
+}
+
+p{
+  text-align: center;
+  font-size: 12pt;
 }
