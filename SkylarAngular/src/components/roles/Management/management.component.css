@@ -1,7 +1,7 @@
 
 body {
-  background-image: url("src/assets/img/backgroundOAGARGE.jpg");
-  height: 100vw;
+  background-color:white;
+  height: 80vw;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,11 +26,9 @@ h1{
 section{
   width: 100%;
   display: table;
-  background-color: lightgray;
   max-height: 400px;
   overflow: auto;
   opacity: 0.88;
-  border: 2px solid yellow;
   height: 100%;
   font-size: 12pt;
 }
@@ -48,16 +46,14 @@ text-align: center;
   border: 2px solid black;
 }
 .bankAccount{
-  margin-top: 64px;
   display: flex;
   position: relative;
-  margin-right: 10%;
+
 }
 .bankAccount td{
   border: 2px solid black;
 }
 .project{
-  margin-top: 64px;
   display: flex;
   position: relative;
 }
@@ -65,7 +61,6 @@ text-align: center;
   border: 2px solid black;
 }
 .booking{
-  margin-top: 64px;
   display: flex;
   position: relative;
 }
@@ -89,7 +84,6 @@ button:hover{
   color: beige;
   border: beige 2.5px solid;
   border-radius: 10px;
-  border: none;
   border-bottom: 2.5px solid black;
   background-color: black;
 
@@ -99,4 +93,14 @@ select{
   border-radius:10px;
   border-bottom: 2.5px solid black;
 }
+.card{
+  margin-top: 64px;
+  margin-inline: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+}
+h5{
+  text-align: center;
+  font-size: 18pt;
+  font-weight: 400
+}

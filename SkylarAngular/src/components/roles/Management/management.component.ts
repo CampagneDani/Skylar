@@ -89,7 +89,6 @@ export class ManagementComponent implements OnInit {
   date = Date()
   value = 0
   budgetB: number | undefined;
-  //userB: number|undefined;
   projectB: number | undefined
   bankAccountB: number | undefined
 
