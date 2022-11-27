@@ -1,7 +1,7 @@
 
 body {
   background-image: url("src/assets/img/backgroundOAGARGE.jpg");
-  height: 100%;
+  height: 100vw;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -13,7 +13,7 @@ hr{
 
 }
 h1{
-  color: whitesmoke;
+  color: black;
   text-align: center;
 
 }
@@ -42,8 +42,8 @@ text-align: center;
   display: flex;
   position: relative;
 
-
 }
+
 .Budget td{
   border: 2px solid black;
 }
@@ -51,7 +51,7 @@ text-align: center;
   margin-top: 64px;
   display: flex;
   position: relative;
-
+  margin-right: 10%;
 }
 .bankAccount td{
   border: 2px solid black;

@@ -1,8 +1,7 @@
 <app-navbar></app-navbar>
 <html>
 <body>
-<h1> Management Page</h1>
-
+<div style="padding-top: 64px"></div>
 <section class="Budget">
   <div class="financeTable" style="position: sticky;top: 0">
     <h2> Budget Planner</h2>
@@ -31,10 +30,10 @@
       </tr>
       <tr>
 
-        <th>Value <i class="fa-solid fa-arrow-down-1-9"></i></th>
+        <th>Budget Value <i class="fa-solid fa-money-bill-trend-up"></i></th>
 
       <tr>
-        <th><input type="number" [(ngModel)]="valueB" placeholder="Value" style="width: 250px;"></th>
+        <th><input type="number" min="0" [(ngModel)]="valueB" placeholder="Value in €" style="width: 250px;"></th>
 
       </tr>
 
@@ -59,7 +58,7 @@
       <tr>
         <th>Start Date <i class="fa-solid fa-calendar-day"></i></th>
         <th>End Date <i class="fa-solid fa-calendar-circle-exclamation"></i></th>
-        <th>Value <i class="fa-solid fa-arrow-down-1-9"></i></th>
+        <th>Budget <i class="fa-solid fa-money-bill-trend-up"></i></th>
         <th>Project <i class="fa-solid fa-diagram-project"></i></th>
         <th>Buttons <i class="fa-solid fa-play-pause"></i></th>
       </tr>
@@ -78,8 +77,8 @@
           <input *ngIf="this.hidden[bdg.id]" type="datetime-local" [(ngModel)]="updEndDate" style="width: 250px;margin-top: 5px">
         </td>
         <td>
-          <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.value}}</div>
-          <input *ngIf="this.hidden[bdg.id]" type="text" [(ngModel)]="updValueB"
+          <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.value}} €</div>
+          <input *ngIf="this.hidden[bdg.id]" type="number" min="0" [(ngModel)]="updValueB"
                  style="width: 250px;margin-top: 5px">
         </td>
 
@@ -125,14 +124,14 @@
 <section class="bankAccount">
   <div class="financeTable" style="position: sticky;top: 0">
     <table>
-      <h1> Bank Account Planner</h1>
+      <h2> Bank Account Planner</h2>
       <tr>
         <th>Saldo <i class="fa-solid fa-sack-dollar"></i></th>
 
         <th style="padding-left: 48px">Buttons <i class="fa-solid fa-play-pause"></i></th>
       </tr>
       <tr>
-        <th><input type="number" [(ngModel)]="saldo" placeholder="Saldo" style="width: 250px;"></th>
+        <th><input type="number" min="0" [(ngModel)]="saldo" placeholder="Saldo" style="width: 250px;"></th>
         <th style="padding-left: 48px">
           <button (click)="createBankAccount()" class="create" size="regular" type="button"
           >Create an Bank Account
@@ -163,7 +162,7 @@
 
   <div class="financeTable">
     <table>
-      <h1> Bank Accounts</h1>
+      <h2> Bank Accounts</h2>
       <tr>
         <th>Saldo <i class="fa-solid fa-sack-dollar"></i></th>
         <th>Name <i class="fa-solid fa-signature"></i></th>
@@ -177,7 +176,7 @@
           <div *ngIf="!this.hidden[ba.id]">{{ba.saldo}}</div>
 
 
-          <input *ngIf="this.hidden[ba.id]" type="number" [(ngModel)]="updSaldo" placeholder="Saldo"
+          <input *ngIf="this.hidden[ba.id]" type="number" min="0" [(ngModel)]="updSaldo" placeholder="Saldo"
                  style="width: 250px;">
 
         </td>
@@ -236,7 +235,7 @@
 <section class="booking">
   <div class="financeTable" style="position: sticky;top: 0">
     <table>
-      <h1> Booking Planner</h1>
+      <h2> Booking Planner</h2>
       <tr>
 
         <th>Date <i class="fa-solid fa-calendar-day"></i></th>
@@ -257,11 +256,11 @@
 
       <tr>
 
-        <th>Value <i class="fa-solid fa-arrow-down-1-9"></i></th>
+        <th> Booking Value <i class="fa-solid fa-circle-dollar"></i></th>
 
       </tr>
       <tr>
-        <th><input type="number" [(ngModel)]="value" placeholder="Value" style="width: 250px;">
+        <th><input type="number" min="0"[(ngModel)]="value" placeholder="Value" style="width: 250px;">
       </tr>
       <tr>
 
@@ -303,10 +302,10 @@
   <!-- Booking Table-->
   <div class="financeTable">
     <table>
-      <h1>Bookings</h1>
+      <h2>Bookings</h2>
       <tr>
         <th>Date <i class="fa-solid fa-calendar-day"></i></th>
-        <th>Value <i class="fa-solid fa-arrow-down-1-9"></i></th>
+        <th>Booking Value <i class="fa-solid fa-circle-dollar"></i></th>
         <th>Budget <i class="fa-solid fa-book-bookmark"></i></th>
         <th>Project <i class="fa-solid fa-diagram-project"></i></th>
         <th>Bank Account <i class="fa-solid fa-vault"></i></th>
@@ -326,9 +325,9 @@
         <td>
 
 
-          <div *ngIf="!this.hidden[booking.id]">{{booking.value}}</div>
+          <div *ngIf="!this.hidden[booking.id]">{{booking.value}} €</div>
 
-          <input *ngIf="this.hidden[booking.id]" type="number" [(ngModel)]="updValue" placeholder="Value"
+          <input *ngIf="this.hidden[booking.id]" type="number" min="0" [(ngModel)]="updValue" placeholder="Value"
                  style="width: 250px;">
         </td>
         <td>
@@ -401,7 +400,7 @@
 <section class="project">
   <div class="financeTable" style="position: sticky;top: 0">
     <table>
-      <h1> Project Planner</h1>
+      <h2> Project Planner</h2>
       <tr>
         <th>Name <i class="fa-solid fa-signature"></i></th>
 
@@ -444,7 +443,7 @@
 
   <div class="financeTable">
     <table>
-      <h1> Projects</h1>
+      <h2> Projects</h2>
       <tr>
         <th>Name <i class="fa-solid fa-signature"></i></th>
         <th>Description <i class="fa-solid fa-quote-left"></i></th>
@@ -502,8 +501,8 @@
       </tr>
     </table>
   </div>
-</section>
+</section> <!--
 <apx-chart [series]="chartSeries" [chart]="chartDetails"></apx-chart>
-<!-- https://www.youtube.com/watch?v=EAiYGe8ivFo     -->
+    https://www.youtube.com/watch?v=EAiYGe8ivFo     -->
 </body>
 </html>

@@ -19,7 +19,7 @@
       <tr>
         <th>Start Date <i class="fa-solid fa-calendar-day"></i></th>
         <th>End Date <i class="fa-solid fa-calendar-circle-exclamation"></i></th>
-        <th>Value <i class="fa-solid fa-arrow-down-1-9"></i></th>
+        <th>Budget Value <i class="fa-solid fa-money-bill-trend-up"></i></th>
         <th>Project <i class="fa-solid fa-diagram-project"></i></th>
         <th>Buttons <i class="fa-solid fa-play-pause"></i></th>
       </tr>
@@ -39,7 +39,7 @@
         </td>
         <td>
           <div *ngIf="!this.hidden[bdg.id]" style="width: 250px;margin-top: 5px">{{bdg.value}}</div>
-          <input *ngIf="this.hidden[bdg.id]" type="text" [(ngModel)]="updValueB"
+          <input *ngIf="this.hidden[bdg.id]" type="number" min="0" [(ngModel)]="updValueB"
                  style="width: 250px;margin-top: 5px">
         </td>
 

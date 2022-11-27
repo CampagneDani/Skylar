@@ -33,8 +33,8 @@
                   <!-- Start Username Input and Validator Call -->
                   <div class="form-outline mb-4">
                     <div class="form-floating">
-                    <input type="username" class="form-control" id="username"  formControlName="username">
-                    <label for="username">Username</label>
+                    <input type="username" class="form-control" id="username" formControlName="username">
+                    <label for="username" style="font-size: 10pt">Username</label>
                     <div *ngIf="loginForm.invalid && usernameControl?.touched && usernameControl.errors">
                       <span *ngIf="usernameControl.errors['required']">Username is required</span>
                     </div>
@@ -46,7 +46,7 @@
                   <div class="form-outline mb-4">
                     <div class="form-floating">
                     <input type="password" class="form-control" id="Password" formControlName="password">
-                    <label for="Password" class="form-label">Password</label>
+                    <label for="Password"  style="font-size: 10pt" class="form-label">Password</label>
                      <div *ngIf="loginForm.invalid && passwordControl.touched && passwordControl.errors">
                       <span *ngIf="passwordControl.errors['minLength']">At least 8 characters</span>
                     </div>
@@ -56,7 +56,7 @@
 
                   <!-- Start Login Function Call and Backend Save-->
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="this.loginForm.invalid" (click)="login()" >Login</button>
+                    <button class="btn btn-dark btn-lg btn-block" type="submit" style="font-size: 12pt" [disabled]="this.loginForm.invalid" (click)="login()" >Login</button>
                   </div>
                   <!-- End Login Function Call and Backend Save-->
 

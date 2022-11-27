@@ -10,6 +10,7 @@ import {User} from "../../models/user.model";
 import {Booking} from "../../models/booking.model";
 import {Budget} from "../../models/budget.model";
 import {Project} from "../../models/project.model";
+import {ApexChart, ApexNonAxisChartSeries, ApexTitleSubtitle} from "ng-apexcharts";
 
 
 @Component({
@@ -18,12 +19,14 @@ import {Project} from "../../models/project.model";
   styleUrls: ['./booking-list.component.css']
 })
 export class BookingListComponent implements OnInit{
+
   constructor(private baService: BankAccountService,
               private bookingService: BookingService,
               private projectService: ProjectService,
               private userService: UserService,
               private budgetService:BudgetService,
               public authService: AuthenticationService) {
+
   }
   ngOnInit() {
   this.getAllBookings()

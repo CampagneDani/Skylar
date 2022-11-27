@@ -24,10 +24,17 @@ export class BankaccountListComponent implements OnInit{
   }
 ngOnInit() {
     this.getAllBankAccounts()
+  this.getAllUser()
 }
   getUserName(id:number){
     return this.users.find((user)=>user.id === id)?.username
   }
+  getAllUser() {
+    this.userService.getAllUser().subscribe((dto: User[]) => {
+      this.users = dto;
+    })
+  }
+
   users:User[]=[]
   bankAccounts: BankAccount[]=[]
   hidden = [false]

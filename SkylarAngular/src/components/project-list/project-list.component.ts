@@ -5,6 +5,7 @@ import {Project} from "../../models/project.model";
 
 import {Booking} from "../../models/booking.model";
 import {Budget} from "../../models/budget.model";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-project-list',
@@ -12,13 +13,19 @@ import {Budget} from "../../models/budget.model";
   styleUrls: ['./project-list.component.css']
 })
 export class ProjectListComponent implements OnInit {
-  constructor(private projectService: ProjectService,) {
+  constructor(private projectService: ProjectService,
+              private userService:UserService) {
 
   }
   getUserName(id:number){
     return this.users.find((user)=>user.id === id)?.username
   }
-  users:User[]=[]
+  getAllUser() {
+    this.userService.getAllUser().subscribe((dto: User[]) => {
+      this.users = dto;
+    })
+  }
+    users:User[]=[]
   projects:Project[]=[]
   hidden = [false]
 // ------------------Project Variables-----------------------------------
@@ -36,6 +43,7 @@ export class ProjectListComponent implements OnInit {
 
   ngOnInit() {
     this.getAllProjects()
+    this.getAllUser()
   }
 
 

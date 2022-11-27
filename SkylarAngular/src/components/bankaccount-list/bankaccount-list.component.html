@@ -25,7 +25,7 @@
           <div *ngIf="!this.hidden[ba.id]">{{ba.saldo}}</div>
 
 
-          <input *ngIf="this.hidden[ba.id]" type="number" [(ngModel)]="updSaldo" placeholder="Saldo"
+          <input *ngIf="this.hidden[ba.id]" type="number" min="0" [(ngModel)]="updSaldo" placeholder="Saldo"
                  style="width: 250px;">
 
         </td>
