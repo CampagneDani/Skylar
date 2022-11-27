@@ -25,6 +25,7 @@ export class UserListComponent implements OnInit {
   hidden = [false]
   Admin="Admin"
   Management="Management"
+  Finance="Finance"
   ngOnInit() {
     this.getAllUser()
   }
