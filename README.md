@@ -3,6 +3,7 @@
 ### You can Either Clone the Repository by:
 * git clone https://github.com/CampagneDani/Skylar.git
 * cd SkylarAngular
+* install node.js (if not installed, its necessary)
 * npm install
 * npm start
 * open http://localhost:4200/ (it's necessary that the port is /4200)
